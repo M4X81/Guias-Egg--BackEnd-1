@@ -21,7 +21,7 @@ public class Ejercicio8_Clase_extra {
          Scanner input = new Scanner(System.in);
         int num, contador = 0, pares = 0, impares = 0;
         while (true) {
-            System.out.print("Ingrese un nÃºmero entero: ");
+            System.out.print("Ingrese un número entero: ");
             num = input.nextInt();
             if (num % 5 == 0) {
                 break;
@@ -36,8 +36,8 @@ public class Ejercicio8_Clase_extra {
                 impares++;
             }
         }
-        System.out.println("Cantidad de nÃºmeros leÃ­dos: " + contador);
-        System.out.println("Cantidad de nÃºmeros pares: " + pares);
-        System.out.println("Cantidad de nÃºmeros impares: " + impares);
+        System.out.println("Cantidad de números leíos: " + contador);
+        System.out.println("Cantidad de números pares: " + pares);
+        System.out.println("Cantidad de números impares: " + impares);
     }
 }
