@@ -1,0 +1,71 @@
+package ejercicios.guia.pkg5;
+
+/*
+ * Un cuadrado mágico 3 x 3 es una matriz 3 x 3 formada por números del 1 al 9 
+donde la suma de sus filas, sus columnas y sus diagonales son idénticas. Crear 
+un programa que permita introducir un cuadrado por teclado y determine si este 
+cuadrado es mágico o no. El programa deberá comprobar que los números introducidos 
+son correctos, es decir, están entre el 1 y el 9.
+ */
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Max
+ */
+public class Eje6_Cl10 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[][] cuadrado = new int[3][3];
+        int sumaMagica;
+
+        // ingresamos x teclado
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Introduce el número de la fila " + (i + 1) + ", columna " + (j + 1) + ": ");
+                int num = input.nextInt();
+                while (num < 1 || num > 9) {
+                    System.out.println("El número introducido no es válido. Introduce un número entre 1 y 9.");
+                    num = input.nextInt();
+                }
+                cuadrado[i][j] = num;
+            }
+        }
+
+        System.out.println("La matriz es:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(cuadrado[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        //esto se podria hacer con una funcion capaz
+        sumaMagica = cuadrado[0][0] + cuadrado[0][1] + cuadrado[0][2];
+
+        // suma fila,columna y diagonal
+        boolean esMagico = true;
+        for (int i = 0; i < 3; i++) {
+            int sumaFila = 0;
+            int sumaColumna = 0;
+            for (int j = 0; j < 3; j++) {
+                sumaFila += cuadrado[i][j];
+                sumaColumna += cuadrado[j][i];
+            }
+            if (sumaFila != sumaMagica || sumaColumna != sumaMagica) {
+                esMagico = false;
+                break;
+            }
+        }
+        if (esMagico && cuadrado[0][0] + cuadrado[1][1] + cuadrado[2][2] == sumaMagica
+                && cuadrado[0][2] + cuadrado[1][1] + cuadrado[2][0] == sumaMagica) {
+            System.out.println("¡El cuadrado es mágico!");
+        } else {
+            System.out.println("El cuadrado no es mágico.");
+        }
+
+    }
+
+}
