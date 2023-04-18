@@ -24,13 +24,16 @@ public class Empleado {
         Random random = new Random();
         System.out.println("Ingrese el nombre del empleado: ");
         this.nombre = input.nextLine();
+       
         int min = 18;
         int max = 70;
         this.edad = random.nextInt((max - min) + 1) + min;
+       
         double sueldoMin = 120000;
         double sueldoMax = 220000;
         double sueldo = sueldoMin + (sueldoMax - sueldoMin) * random.nextDouble();
         this.salario = sueldo;
+        
         System.out.println("Agente: " + nombre);
         System.out.println("Edad: " + edad);
         System.out.println("Salario: " + String.format("%.2f", salario));
@@ -44,7 +47,7 @@ public class Empleado {
     } else {
         salario *= 1.05; // Aumento del 5%
     }
-    //System.out.println("El nuevo salario de " + nombre + " es $" + salario);
+    // String.format("%.2f", salario) esto hace una especie de trunc para limitar los decimales a 2 digitos
     System.out.println("El nuevo salario de " + nombre + " es $" + String.format("%.2f", salario));
 
 }
