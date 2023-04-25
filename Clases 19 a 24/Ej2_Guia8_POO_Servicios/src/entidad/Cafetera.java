@@ -19,7 +19,6 @@ public class Cafetera {
 
     private double capacidadMaxima;
     private double cantidadActual;
-     //Cafetera cafetera1 = new Cafetera(1000,0);
     //Agregar constructor 
     //vacío y con parámetros así como setters y getters
 

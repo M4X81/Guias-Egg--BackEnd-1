@@ -12,14 +12,64 @@ en cuanto quedó la taza.
 c-Método vaciarCafetera(): pone la cantidad de café actual en cero. 
 d-Método agregarCafe(int): se le pide al usuario una cantidad de café, el método 
 lo recibe y se añade a la cafetera la cantidad de café indicada.
-*/
-
+ */
 package main;
+
+import entidad.Cafetera;
+import java.util.Scanner;
+import servicio.cafeteraServicio;
+
+
 /**
  *
  * @author Max
  */
-
 public class Main {
-    
+
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in).useDelimiter("\n");
+    Cafetera cafetera = new Cafetera(1000, 0);
+    cafeteraServicio cafeteraServicio = new cafeteraServicio(cafetera);
+    char respuesta = 'x';
+    int opcion;
+
+    do {
+        System.out.println("Seleccione una opción:");
+        System.out.println("1. Revisar cafetera");
+        System.out.println("2. Llenar la cafetera");
+        System.out.println("3. Servir una taza");
+        System.out.println("4. Vaciar la cafetera");
+        System.out.println("5. Agregar café");
+        System.out.println("6. Salir");
+        opcion = input.nextInt();
+
+        switch (opcion) {
+            case 1:
+                System.out.println("La cantidad actual de la cafetera es " + cafetera.getCantidadActual()+ " ml" );
+                break;
+            case 2:
+                cafeteraServicio.llenarCafetera();
+                        
+                break;
+            case 3:
+                cafeteraServicio.servirTaza();
+                break;
+            case 4:
+                cafeteraServicio.vaciarCafetera();
+                break;
+            case 5:
+                cafeteraServicio.agregarCafe();
+                break;
+            case 6:
+                System.out.println("Hasta luego!");
+                respuesta = 's';
+                break;
+            default:
+                System.out.println("Opción inválida. Por favor intente de nuevo.");
+        }
+    } while (!(respuesta == 's'));
 }
+
+}
+
+
