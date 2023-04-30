@@ -34,7 +34,7 @@ import servicio.PersonaServicio;
 
 /**
  *
- * @author Meli
+ * @author Max
  */
 public class Main {
 

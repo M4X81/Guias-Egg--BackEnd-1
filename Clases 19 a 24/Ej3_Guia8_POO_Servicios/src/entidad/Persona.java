@@ -31,7 +31,7 @@ package entidad;
 
 /**
  *
- * @author Meli
+ * @author Max
  */
 public class Persona {
     String nombre;

@@ -33,7 +33,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Meli
+ * @author Max
  */
 public class PersonaServicio {
 
