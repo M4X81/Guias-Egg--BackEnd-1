@@ -37,7 +37,6 @@ import java.util.Scanner;
  */
 public class PersonaServicio {
 
-    //private Scanner input = new Scanner(System.in).useDelimiter("\n");
     private Persona personaObjeto;
 
     /*
@@ -79,12 +78,8 @@ Además, comprueba que el sexo introducido sea correcto, es decir, H, M o O. Si 
     }
 //A- Método esMayorDeEdad(): indica si la persona es mayor de edad. La función devuelve un booleano.
 
-    public boolean esMayorDeEdad() {
-        if (personaObjeto.getEdad() >= 18) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean esMayorDeEdad(Persona persona) {
+        return persona.getEdad() >= 18;
     }
 
     /*
@@ -95,8 +90,8 @@ entre 20 y 25 (incluidos), significa que la persona está en su peso ideal y la 
 Finalmente, si el resultado de la fórmula es un valor mayor que 25 significa que 
 la persona tiene sobrepeso, y la función devuelve un 1.
      */
-    public int calcularIMC() {
-        double IMC = personaObjeto.getPeso() / (Math.pow(personaObjeto.getAltura(), 2));
+    public int calcularIMC(Persona persona) {
+        double IMC = persona.getPeso() / (Math.pow(persona.getAltura(), 2));
         if (IMC < 20) {
             return -1;
         } else if (IMC > 19 && IMC < 26) {
@@ -104,6 +99,16 @@ la persona tiene sobrepeso, y la función devuelve un 1.
         } else {
             return 1;
         }
+    }
+
+    public double porcentajeMayoresEdad(Persona[] personas) {
+        int mayores = 0;
+        for (Persona p : personas) {
+            if (esMayorDeEdad(p)) {
+                mayores++;
+            }
+        }
+        return (double) mayores / personas.length * 100;
     }
 
 }

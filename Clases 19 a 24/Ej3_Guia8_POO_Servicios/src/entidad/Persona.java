@@ -34,8 +34,6 @@ package entidad;
  * @author Meli
  */
 public class Persona {
-
-    //nombre, edad, sexo (‘H’ para hombre, ‘M’ para mujer, ‘O’ para otro), peso y altura  
     String nombre;
     int edad;
     String sexo;
@@ -43,6 +41,14 @@ public class Persona {
     double altura;
 
     public Persona() {
+    }
+    
+    public Persona(String nombre, int edad, String sexo, double peso, double altura) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
     }
 
     public String getNombre() {
@@ -85,12 +91,15 @@ public class Persona {
         this.altura = altura;
     }
 
-    public Persona(String nombre, int edad, String sexo, double peso, double altura) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
-    }
+    @Override
+public String toString() {
+    return "Persona{" +
+            "nombre='" + nombre + '\'' +
+            ", edad=" + edad +           
+            ", sexo=" + sexo +
+            ", peso=" + peso +
+            ", altura=" + altura +
+            '}';
+}
 
 }
