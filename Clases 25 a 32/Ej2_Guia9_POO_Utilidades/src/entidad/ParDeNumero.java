@@ -23,6 +23,8 @@ public class ParDeNumero {
     double numeroB;
 
     public ParDeNumero() {
+       double NumeroA=Math.random() * 10 + 1;
+       double NumeroB=Math.random() * 10 + 1;
     }
 
     public double getNumeroA() {

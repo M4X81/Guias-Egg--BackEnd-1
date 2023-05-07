@@ -55,7 +55,13 @@ public class ParDeNumeroServicio {
         en vez de usar el condicional if:
         double mayorNum = Math.max(parNum.getNumeroA(), parNum.getNumeroB());
         double menorNum = Math.min(parNum.getNumeroA(), parNum.getNumeroB());
-         */       
+         */    
+        /*
+        if (devolverMayor(numeros) == numeros.getNum1()){
+            menor = Math.round((numeros.getNum2() * 100) / 100);
+        } else {
+            menor = Math.round((numeros.getNum1() * 100) / 100); }
+        */
         return mayorNum;
     }
 
