@@ -23,10 +23,20 @@ Este método se llamará en el main.
  */
 package main;
 
+import entity.Ahorcado;
+import service.AhorcadoService;
+
 /**
  *
  * @author Max
  */
 public class Main {
-    
+    public static void main(String[] args) {
+        AhorcadoService juegoAhorcado = new AhorcadoService();
+        char[] juego1= juegoAhorcado.crearJuego();
+        System.out.println("La palabra a encontrar tiene una longitud de " + juegoAhorcado.longitud() + " letras.");
+       // juegoAhorcado.buscar( juego1);
+        
+        
+    }
 }

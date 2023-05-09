@@ -30,9 +30,11 @@ import java.util.Scanner;
  * @author Max
  */
 public class AhorcadoService {
+
     Scanner input = new Scanner(System.in).useDelimiter("\n");
-    private int intentos;
+    int intentos;
     private char[] palabra;
+    Ahorcado juegoAhorcado = new Ahorcado();
 
     /*
     Metodo crearJuego(): le pide la palabra al usuario y cantidad de jugadas máxima. 
@@ -42,22 +44,26 @@ la palabra en un índice del vector. Y también, guarda la cantidad de jugadas m
 y el valor que ingresó el usuario.
      */
     public char[] crearJuego() {
-        Ahorcado juegoAhorcado = new Ahorcado();
+
         System.out.println("Ingrese la palabra a adivinar para comenzar el juego.");
         String palabraJuego = input.nextLine();
         char[] palabra = new char[palabraJuego.length()];
         for (int i = 0; i < palabraJuego.length(); i++) {
             palabra[i] = palabraJuego.charAt(i);
         }
-        System.out.println("La cantidad máxima de intentos será igual al largo de la palabra"
-                + "menos 2.");
-        int intentos = palabraJuego.length() - 2;
-        juegoAhorcado.setJugadasMax(intentos);
+        juegoAhorcado.setJugadasMax(palabraJuego.length()-1);
+        System.out.println("La cantidad máxima de intentos será igual al largo de la palabra -1 ");
+
         return palabra;
     }
+    //Método longitud(): muestra la longitud de la palabra que se debe encontrar. 
+    public int longitud() {
+        int longPalabra = juegoAhorcado.getJugadasMax()+1;
+        return longPalabra;
+    }
+
     //Método buscar(letra):  este método recibe una letra dada por el usuario y busca 
     //si la letra ingresada es parte de la palabra o no. También informará si la letra estaba o no.
-
     public boolean buscar(char letra) {
         String[] vectorIngresadas = new String[intentos];
         boolean encontrada = false;
@@ -87,4 +93,16 @@ que se busque una letra que no esté, se le restará uno a sus oportunidades.
 //    public boolean encontradas() {
 //
 //    }
+
+    //Arrays.binarySearch(ah.getPalabra(), letra)
+    /*
+    private boolean buscar(String letra) {
+        if (Arrays.binarySearch(ah.getPalabra(), letra) >= 0) {
+            System.out.println("La letra si esta");
+            return true;
+        } else {
+            System.out.println("La letra " + letra + " no esta");
+            return false;
+        }
+     */
 }
