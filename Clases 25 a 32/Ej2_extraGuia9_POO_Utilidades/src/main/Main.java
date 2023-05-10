@@ -23,8 +23,6 @@ Este método se llamará en el main.
  */
 package main;
 
-import entity.Ahorcado;
-import java.util.Scanner;
 import service.AhorcadoService;
 
 /**
@@ -33,10 +31,15 @@ import service.AhorcadoService;
  */
 public class Main {
 
-    public static void main(String[] args) {
-        AhorcadoService juegoAhorcado = new AhorcadoService();
-        juegoAhorcado.crearJuego();
-        System.out.println("La palabra a encontrar tiene una longitud de " + juegoAhorcado.longitud() + " letras.");
-        juegoAhorcado.buscar();
+     public static void main(String[] args) {
+        AhorcadoService ahorcadoService = new AhorcadoService();
+        ahorcadoService.juego();
     }
+
+//    public static void main(String[] args) {
+//        AhorcadoService juegoAhorcado = new AhorcadoService();
+//        juegoAhorcado.crearJuego();
+//        System.out.println("La palabra a encontrar tiene una longitud de " + juegoAhorcado.longitud() + " letras.");
+//        juegoAhorcado.buscar();
+//    }
 }
