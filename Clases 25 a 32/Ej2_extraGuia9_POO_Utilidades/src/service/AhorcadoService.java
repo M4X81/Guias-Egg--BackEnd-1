@@ -32,7 +32,7 @@ import java.util.Scanner;
 public class AhorcadoService {
 
     Scanner input = new Scanner(System.in).useDelimiter("\n");
-    int intentos;
+
     private char[] palabra;
     Ahorcado juegoAhorcado = new Ahorcado();
 
@@ -43,46 +43,48 @@ Después ingresa la palabra en el vector, letra por letra, quedando cada letra d
 la palabra en un índice del vector. Y también, guarda la cantidad de jugadas máximas 
 y el valor que ingresó el usuario.
      */
-    public char[] crearJuego() {
-
+    public void crearJuego() {
         System.out.println("Ingrese la palabra a adivinar para comenzar el juego.");
         String palabraJuego = input.nextLine();
-        //tomo la palabra ingresada y la cargo en un vector
-        char[] palabra = new char[palabraJuego.length()];
+        // tomo la palabra ingresada y la cargo en un vector
+        palabra = new char[palabraJuego.length()];
         for (int i = 0; i < palabraJuego.length(); i++) {
             palabra[i] = palabraJuego.charAt(i);
         }
-        juegoAhorcado.setJugadasMax(palabraJuego.length() - 1);
-        System.out.println("La cantidad máxima de intentos será igual al largo de la palabra -1 ");
-        return palabra;
+        juegoAhorcado.setJugadasMax(palabraJuego.length() );
+        System.out.println("La cantidad máxima de intentos será igual al largo de la palabra + 1.");
+        System.out.println("Intentos" + juegoAhorcado.getJugadasMax()) ;
     }
 
     //Método longitud(): muestra la longitud de la palabra que se debe encontrar. 
     public int longitud() {
-        int longPalabra = juegoAhorcado.getJugadasMax() + 1;
+        int longPalabra = juegoAhorcado.getJugadasMax() ;
         return longPalabra;
     }
 
     //Método buscar(letra):  este método recibe una letra dada por el usuario y busca 
     //si la letra ingresada es parte de la palabra o no. También informará si la letra estaba o no.
-    public boolean buscar(char letra) {
+    public boolean buscar() {
         String[] vectorIngresadas = new String[juegoAhorcado.getJugadasMax()];
         boolean encontrada = false;
-        for (int i = 0; i < palabra.length; i++) {
-            System.out.println("Jugador, ingrese la letra.");
-            vectorIngresadas[i] = input.next();
-            if (letra == palabra[i]) {
-                encontrada = true;
-                System.out.println("La letra inresada esta en la palabra.");
-                intentos--;
-                break;
-            }
-            if (!encontrada) {
-                intentos--;
-                System.out.println("La letra no está en la palabra. Quedan " + intentos + " intentos.");
-            }
-        }
+        int intentos = (juegoAhorcado.getJugadasMax())+1;
+       
+        do {
+            for (int i = 0; i < intentos; i++) {
+                System.out.println("Jugador, ingrese la letra.");
+                vectorIngresadas[i] = input.next();
+                if (vectorIngresadas[i].charAt(0) == palabra[i]) {
+                    encontrada = true;
+                    intentos--;
+                    System.out.println("La letra ingresada está en la palabra.Quedan " + intentos + " intentos.");
 
+                } else {
+                    intentos--;
+                    System.out.println("La letra no está en la palabra. Quedan " + intentos + " intentos.");
+                }
+            }
+
+        } while (intentos > 0);
         return encontrada;
     }
     /*

@@ -35,15 +35,8 @@ public class Main {
 
     public static void main(String[] args) {
         AhorcadoService juegoAhorcado = new AhorcadoService();
-        char[] juego1 = juegoAhorcado.crearJuego();
+        juegoAhorcado.crearJuego();
         System.out.println("La palabra a encontrar tiene una longitud de " + juegoAhorcado.longitud() + " letras.");
-//        Scanner input = new Scanner(System.in);
-//        System.out.println("Ingrese una letra: ");
-//        char letra = input.next().charAt(0);
-
-        juegoAhorcado.buscar(letra);
-
-      
-
+        juegoAhorcado.buscar();
     }
 }
