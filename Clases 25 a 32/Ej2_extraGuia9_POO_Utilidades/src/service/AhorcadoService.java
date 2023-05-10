@@ -47,41 +47,42 @@ y el valor que ingresó el usuario.
 
         System.out.println("Ingrese la palabra a adivinar para comenzar el juego.");
         String palabraJuego = input.nextLine();
+        //tomo la palabra ingresada y la cargo en un vector
         char[] palabra = new char[palabraJuego.length()];
         for (int i = 0; i < palabraJuego.length(); i++) {
             palabra[i] = palabraJuego.charAt(i);
         }
-        juegoAhorcado.setJugadasMax(palabraJuego.length()-1);
+        juegoAhorcado.setJugadasMax(palabraJuego.length() - 1);
         System.out.println("La cantidad máxima de intentos será igual al largo de la palabra -1 ");
-
         return palabra;
     }
+
     //Método longitud(): muestra la longitud de la palabra que se debe encontrar. 
     public int longitud() {
-        int longPalabra = juegoAhorcado.getJugadasMax()+1;
+        int longPalabra = juegoAhorcado.getJugadasMax() + 1;
         return longPalabra;
     }
 
     //Método buscar(letra):  este método recibe una letra dada por el usuario y busca 
     //si la letra ingresada es parte de la palabra o no. También informará si la letra estaba o no.
     public boolean buscar(char letra) {
-        String[] vectorIngresadas = new String[intentos];
+        String[] vectorIngresadas = new String[juegoAhorcado.getJugadasMax()];
         boolean encontrada = false;
         for (int i = 0; i < palabra.length; i++) {
             System.out.println("Jugador, ingrese la letra.");
-            input.next();
-            for (int j = 0; j < intentos; j++) {
-                vectorIngresadas[i] = input.next();
-            }
+            vectorIngresadas[i] = input.next();
             if (letra == palabra[i]) {
                 encontrada = true;
+                System.out.println("La letra inresada esta en la palabra.");
+                intentos--;
                 break;
             }
+            if (!encontrada) {
+                intentos--;
+                System.out.println("La letra no está en la palabra. Quedan " + intentos + " intentos.");
+            }
         }
-        if (!encontrada) {
-            intentos--;
-            System.out.println("La letra no está en la palabra. Quedan " + intentos + " intentos.");
-        }
+
         return encontrada;
     }
     /*
