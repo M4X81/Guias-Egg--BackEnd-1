@@ -90,12 +90,14 @@ public void crearProducto() {
         }
     }
     public void mostrarOrdenados(){
-        System.out.println("Ordenando productos...");
-        Iterator<Map.Entry<String, Double>> iterator = productosTree.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry<String, Double> entry = iterator.next();
-            System.out.println("Producto: " + entry.getKey());
-            System.out.println("Precio: " + entry.getValue());
-        }
+    System.out.println("Ordenando productos...");
+    TreeMap<String, Double> productosTree = new TreeMap<>(productos);
+    Iterator<Map.Entry<String, Double>> iterator = productosTree.entrySet().iterator();
+    while (iterator.hasNext()){
+        Map.Entry<String, Double> entry = iterator.next();
+        System.out.println("Producto: " + entry.getKey());
+        System.out.println("Precio: " + entry.getValue());
     }
+}
+
 }

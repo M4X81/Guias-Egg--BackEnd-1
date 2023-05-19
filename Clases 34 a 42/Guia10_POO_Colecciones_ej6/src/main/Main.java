@@ -46,6 +46,7 @@ public class Main {
                     System.out.println("Saliendo...");
                     System.out.println("Hasta luego!!");
                     break;
+                default: System.out.println("opción incorrecta!");
             }
         }while (opcion < 6 && opcion > 0);   
     }
