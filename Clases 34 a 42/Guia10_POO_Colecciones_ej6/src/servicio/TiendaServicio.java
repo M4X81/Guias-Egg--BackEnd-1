@@ -26,8 +26,11 @@ public class TiendaServicio {
     /*
     creo un tree map xq sino no voy a poder ordenar el mapa y a este le cargo 
     "productos" que serian los elementos del hashMap
+    //TreeMap<String, Double> productosTree= new TreeMap<>(productos);
+    al final lo declare adentro del metodo ordenar xq sino solo creaba un treemap
+    y lo sobreescribia cada vez que ingresaba nuevos datos
     */
-    TreeMap<String, Double> productosTree= new TreeMap<>(productos);
+    
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     Tienda producto = new Tienda();
 
