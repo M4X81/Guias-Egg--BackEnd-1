@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Meli
+ * @author Max
  */
 public class ListaNumero {    
     
