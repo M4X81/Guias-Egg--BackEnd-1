@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author Max
  */
 public class Dni {
-    Scanner input = new Scanner(System.in).useDelimiter("\n");
+   // Scanner input = new Scanner(System.in).useDelimiter("\n");
    private char serie;
    private int numero;
 

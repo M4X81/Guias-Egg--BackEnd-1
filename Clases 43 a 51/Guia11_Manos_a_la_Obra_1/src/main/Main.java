@@ -17,17 +17,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in).useDelimiter("\n");
-        Dni dni = new Dni();
-        Persona personas = new Persona();
-        System.out.println("Ingrese nombre de la persona");
-        personas.setNombre(input.nextLine());
-        System.out.println("Ingrese apellido");
-        personas.setApellido(input.nextLine());
-        System.out.println("Ingrese serie del DNI");
-        dni.setSerie(input.next().charAt(0));
-        System.out.println("Ingrese numero del DNI");
-        dni.setNumero(input.nextInt());
-        System.out.println( personas.toString());
+        
     }
 }
