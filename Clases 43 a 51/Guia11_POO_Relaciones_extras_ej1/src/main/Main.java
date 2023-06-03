@@ -27,5 +27,6 @@ public class Main {
         System.out.println("");
         ps.adoptarPerro();
         ps.mostrarPersona();
+        ps.listaMascotasNoAdoptadas();
     }
 }

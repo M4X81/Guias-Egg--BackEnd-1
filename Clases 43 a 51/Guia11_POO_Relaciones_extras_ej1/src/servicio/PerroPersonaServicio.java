@@ -73,41 +73,90 @@ public class PerroPersonaServicio {
         }
     }
 
+//    public void adoptarPerro() {
+//       
+//        String aux, aux2;
+//        ArrayList<Perro> listaAuxPerro = new ArrayList();
+//        for (Persona per : personas) {
+//             
+//            do {
+//                Iterator it = enAdopcion.iterator();
+//                listarPerros();
+//                System.out.println(per.getNombre() + " Ingrese el perro que desea adoptar");
+//                aux = leer.next();
+//                while (it.hasNext()) {
+//                    Perro nextP = (Perro) it.next();
+//
+//                    if (nextP.getNombre().equalsIgnoreCase(aux)) {
+//                        listaAuxPerro.add(nextP);
+//                        per.setMascota(listaAuxPerro);
+//                        it.remove();   
+//                    }
+//                    
+//                }
+//                listarPersonas();
+//                System.out.println("Desea adoptar otro? (S/si)");
+//                aux2 = leer.next();
+//               
+//            } while (aux2.equalsIgnoreCase("S"));
+//                
+//        }
+// 
+//
+//    }
     public void adoptarPerro() {
-       
         String aux, aux2;
-        ArrayList<Perro> listaAuxPerro = new ArrayList();
+
         for (Persona per : personas) {
-             
+            //meto el Arraylist dentro del for xq quedaba cargado y x eso asignaba la misma lista a todas las personas
+            //y el iterator lo vuelvo a dejar fuera del do
+            ArrayList<Perro> listaAuxPerro = new ArrayList<>();
+            Iterator it = enAdopcion.iterator();
+
             do {
-                Iterator it = enAdopcion.iterator();
                 listarPerros();
                 System.out.println(per.getNombre() + " Ingrese el perro que desea adoptar");
                 aux = leer.next();
+
                 while (it.hasNext()) {
                     Perro nextP = (Perro) it.next();
-
                     if (nextP.getNombre().equalsIgnoreCase(aux)) {
                         listaAuxPerro.add(nextP);
-                        per.setMascota(listaAuxPerro);
-                        it.remove();   
+                        it.remove();
+                        break;
+                        //el per.setMascota lo dejo fuera para que cargue una vez q termina el ciclo
                     }
-                    
                 }
-                listarPersonas();
+
                 System.out.println("Desea adoptar otro? (S/si)");
                 aux2 = leer.next();
-               
             } while (aux2.equalsIgnoreCase("S"));
-                
-        }
- 
 
+            // Faltaba verificar si la lista mascota era null y crear una nueva instancia si es necesario
+            //y recien ahi setear la mascota a la persona
+            if (per.getMascota() == null) {
+                per.setMascota(new ArrayList<>());
+            }
+            per.getMascota().addAll(listaAuxPerro);
+            //con este cargo toda la lista de mascotas de la aux a la del constructor
+        }
     }
-    public void mostrarPersona(){
+
+    public void mostrarPersona() {
         for (Persona pers : personas) {
             System.out.println("Lista de personas con sus mascotas");
             System.out.println(pers.getNombre() + pers.getApellido() + pers.getMascota());
+        }
+    }
+    public void listaMascotasNoAdoptadas(){
+        
+        for (Perro perros : enAdopcion) {
+            if (perros.getNombre()==null) {
+                System.out.println("Todas las mascotas han sido adoptadas");
+            }else{
+               System.out.println("Las siguientes mascotas no han sido adoptadas...");
+            System.out.println(perros.getNombre()); 
+            } 
         }
     }
 }
