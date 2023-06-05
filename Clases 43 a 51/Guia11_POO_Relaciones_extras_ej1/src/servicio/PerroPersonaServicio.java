@@ -98,11 +98,8 @@ public class PerroPersonaServicio {
 //                System.out.println("Desea adoptar otro? (S/si)");
 //                aux2 = leer.next();
 //               
-//            } while (aux2.equalsIgnoreCase("S"));
-//                
+//            } while (aux2.equalsIgnoreCase("S"));               
 //        }
-// 
-//
 //    }
     public void adoptarPerro() {
         String aux, aux2;
@@ -140,6 +137,10 @@ public class PerroPersonaServicio {
             per.getMascota().addAll(listaAuxPerro);
             //con este cargo toda la lista de mascotas de la aux a la del constructor
         }
+        /*
+        si voy cargando en orden las mascotas, independientemente de cuantas asigne a cada persona anda perfecto
+        cuando altero el orden de las mascotas al asignarlas se rompe...despues revisare
+        */
     }
 
     public void mostrarPersona() {

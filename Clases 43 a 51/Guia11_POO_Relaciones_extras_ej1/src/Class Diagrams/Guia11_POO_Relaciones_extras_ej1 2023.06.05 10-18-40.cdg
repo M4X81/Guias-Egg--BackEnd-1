@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11_POO_Relaciones_extras_ej1">
+  <ClassDiagramComponents>
+    <Class name="Perro" package="entidad" visibility="public" xPosition="75.0" yPosition="38.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="raza" type="Raza" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="tamanio" type="Tamanio" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="Raza" name="raza"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Tamanio" name="tamanio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRaza" returnType="Raza" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="Raza" name="raza"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getTamanio" returnType="Tamanio" visibility="public"/>
+        <Method name="setTamanio" returnType="void" visibility="public">
+          <Argument type="Tamanio" name="tamanio"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="entidad" visibility="public" xPosition="3.0" yPosition="457.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="documento" type="int" visibility="private"/>
+        <Field name="mascota" type="List&lt;Perro&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="int" name="documento"/>
+          <Argument type="List&lt;Perro&gt;" name="mascota"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="getDocumento" returnType="int" visibility="public"/>
+        <Method name="setDocumento" returnType="void" visibility="public">
+          <Argument type="int" name="documento"/>
+        </Method>
+        <Method name="getMascota" returnType="List&lt;Perro&gt;" visibility="public"/>
+        <Method name="setMascota" returnType="void" visibility="public">
+          <Argument type="List&lt;Perro&gt;" name="mascota"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="main" visibility="public" xPosition="964.0" yPosition="634.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PerroPersonaServicio" package="servicio" visibility="public" xPosition="671.0" yPosition="457.0">
+      <Fields>
+        <Field name="leer" type="Scanner" visibility="package"/>
+        <Field name="personas" type="List&lt;Persona&gt;" visibility="package"/>
+        <Field name="enAdopcion" type="List&lt;Perro&gt;" visibility="package"/>
+        <Field name="nombresDePerros" type="String[]" visibility="package"/>
+        <Field name="razas" type="Raza[]" visibility="package"/>
+        <Field name="tamanios" type="Tamanio[]" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearPerros" returnType="void" visibility="public"/>
+        <Method name="listarPerros" returnType="void" visibility="public"/>
+        <Method name="crearPersonas" returnType="void" visibility="public"/>
+        <Method name="listarPersonas" returnType="void" visibility="public"/>
+        <Method name="adoptarPerro" returnType="void" visibility="public"/>
+        <Method name="mostrarPersona" returnType="void" visibility="public"/>
+        <Method name="listaMascotasNoAdoptadas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="Raza" package="enumeraciones" visibility="public" xPosition="949.0" yPosition="38.0">
+      <Literals>
+        <Literal name="COLLIE"/>
+        <Literal name="SALCHICHA"/>
+        <Literal name="CALLEJERO"/>
+        <Literal name="CHIHUAHUA"/>
+        <Literal name="BOXER"/>
+        <Literal name="MANTO_NEGRO"/>
+        <Literal name="OTRO"/>
+      </Literals>
+    </Enum>
+    <Enum name="Tamanio" package="enumeraciones" visibility="public" xPosition="618.0" yPosition="185.0">
+      <Literals>
+        <Literal name="CHICO"/>
+        <Literal name="MEDIANO"/>
+        <Literal name="GRANDE"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mascota" source="entidad.Persona" target="entidad.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Perro&gt;"/>
+    <HasRelation name="raza" source="entidad.Perro" target="enumeraciones.Raza" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="enAdopcion" source="servicio.PerroPersonaServicio" target="entidad.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Perro&gt;"/>
+    <HasRelation name="tamanio" source="entidad.Perro" target="enumeraciones.Tamanio" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidad.Perro" target="enumeraciones.Raza" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="entidad.Persona" target="entidad.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personas" source="servicio.PerroPersonaServicio" target="entidad.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Persona&gt;"/>
+    <UseRelation source="entidad.Perro" target="enumeraciones.Tamanio" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
