@@ -27,9 +27,7 @@ import entity.Velero;
 import entity.Yate;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
 /**
