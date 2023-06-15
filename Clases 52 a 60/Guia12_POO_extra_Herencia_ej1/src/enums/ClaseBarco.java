@@ -9,7 +9,6 @@ package enums;
  *
  * @author Max
  */
-public enum Color {
-   BLANCO, NEGRO, ROJO, AZUL, GRIS
-    //blanco, negro, rojo, azul y gris
+public enum ClaseBarco {
+    OTRO,VELERO, BARCO_MOTOR,YATE
 }

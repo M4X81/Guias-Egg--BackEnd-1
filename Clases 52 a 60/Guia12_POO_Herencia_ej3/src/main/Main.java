@@ -15,6 +15,8 @@ import entity.Lavadora;
 import entity.Televisor;
 import java.util.ArrayList;
 import service.ElectrodomesticoService;
+import service.LavadoraService;
+
 
 /**
  *
