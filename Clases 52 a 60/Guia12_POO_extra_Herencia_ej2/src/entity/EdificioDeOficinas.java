@@ -70,6 +70,8 @@ public class EdificioDeOficinas extends Edificio {
     public void setNumeroPisos(int numeroPisos) {
         this.numeroPisos = numeroPisos;
     }
+    private double anchoSup;
+    private double largoSup;
 
     @Override
     public double calcularSuperficie() {
@@ -79,17 +81,23 @@ public class EdificioDeOficinas extends Edificio {
         double largo = input.nextDouble();
         double sup = largo * ancho * numeroPisos;
         System.out.println("La Superficie del edificio de oficinas es de " + sup + "m2");
+        anchoSup = ancho;
+        largoSup = largo;
         return sup;
     }
 
     @Override
     public double calcularVolumen() {
         System.out.println("Ingrese altura de cada piso");
-        alto=input.nextInt();
-        double vol=largo * ancho * alto * numeroPisos;
-        System.out.println("El volumen del polideportivo es " + vol + " m3");
+        alto = input.nextInt();
+        double vol = largoSup * anchoSup * alto * numeroPisos;
+        System.out.println("El volumen del edificio de oficinas es " + vol + " m3");
         return vol;
-        
+    }
+
+    @Override
+    public String toString() {
+        return "EdificioDeOficinas{" + "numeroOficinas=" + numeroOficinas + ", personasPorOficina=" + personasPorOficina + ", numeroPisos=" + numeroPisos + ", anchoSup=" + anchoSup + ", largoSup=" + largoSup + '}';
     }
 
 }

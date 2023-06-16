@@ -24,6 +24,8 @@ cantPersonas() y mostrar los resultados de cada edificio de oficinas.
  */
 package main;
 
+import entity.Edificio;
+import java.util.ArrayList;
 import service.EdificioServicio;
 
 /**
@@ -31,8 +33,23 @@ import service.EdificioServicio;
  * @author Max
  */
 public class Main {
+
     public static void main(String[] args) {
-        EdificioServicio edif = new EdificioServicio();
-        edif.crearEdificio();
+        /*Por último, en el main vamos a crear un ArrayList de tipo Edificio. El ArrayList debe contener
+dos polideportivos y dos edificios de oficinas. Luego, recorrer este array y ejecutar los
+métodos calcularSuperficie y calcularVolumen en cada Edificio. Se deberá mostrar la
+superficie y el volumen de cada edificio.*/
+        ArrayList<EdificioServicio> edificios = new ArrayList();
+
+        do {
+            EdificioServicio edif = new EdificioServicio();
+            edif.crearEdificio();
+            edificios.add(edif);
+        } while (edificios.size() < 4);
+ 
+        for (EdificioServicio edificio : edificios) {
+            System.out.println(edificio);  
+        }
+       
     }
 }

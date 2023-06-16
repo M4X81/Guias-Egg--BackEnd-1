@@ -93,4 +93,9 @@ private double largoSup;
         return vol;
     }
 
+    @Override
+    public String toString() {
+        return "Polideportivo{" + "nombre=" + nombre + ", techo=" + techo + ", anchoSup=" + anchoSup + ", largoSup=" + largoSup + '}';
+    }
+
 }
