@@ -97,10 +97,10 @@ Abierto, esta clase implementará los dos métodos abstractos y los atributos de
     @Override
     public String toString() {
         return super.toString() + " - Polideportivo{"
-                + "nombre=" + nombre
-                + ", techo=" + techo
-                + ", anchoSup=" + anchoSup
-                + ", largoSup=" + largoSup
+                + "nombre= " + nombre
+                + ", tiene techo= " + techo
+                + ", anchoSup= " + anchoSup +" m"
+                + ", largoSup= " + largoSup + " m"
                 + '}';
     }
 

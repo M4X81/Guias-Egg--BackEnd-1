@@ -46,9 +46,10 @@ superficie y el volumen de cada edificio.*/
             Edificio edif = edifServ.crearEdificio();
             edificios.add(edif);
         } while (edificios.size() < 4);
+                
 
-        for (Edificio edif : edificios) {
-            System.out.println(edif.toString());
+        for (Edificio edificio : edificios) {
+            System.out.println(edificio.toString());
         }
     }
 }

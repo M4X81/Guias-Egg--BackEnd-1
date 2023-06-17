@@ -101,8 +101,8 @@ public String toString() {
             "numeroOficinas=" + numeroOficinas +
             ", personasPorOficina=" + personasPorOficina +
             ", numeroPisos=" + numeroPisos +
-            ", anchoSup=" + anchoSup +
-            ", largoSup=" + largoSup +
+            ", anchoSup=" + anchoSup + " m" +
+            ", largoSup=" + largoSup + " m" +
             '}';
 }
 

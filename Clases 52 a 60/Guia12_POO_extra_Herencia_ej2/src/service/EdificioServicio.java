@@ -63,6 +63,7 @@ public class EdificioServicio {
                 poli.calcularVolumen();
                 System.out.println("Polideportivos techados : " + techado);
                 System.out.println("Polideportivos abiertos : " + abierto);
+                edif=poli;
                 break;
             
             case 2:
@@ -77,7 +78,7 @@ public class EdificioServicio {
                 cantidadPersonas(ofice);
                 ofice.calcularSuperficie();
                 ofice.calcularVolumen();
-                
+                edif = ofice;
                 break;
         }
         return edif;
