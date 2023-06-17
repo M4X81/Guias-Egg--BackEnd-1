@@ -39,17 +39,16 @@ public class Main {
 dos polideportivos y dos edificios de oficinas. Luego, recorrer este array y ejecutar los
 métodos calcularSuperficie y calcularVolumen en cada Edificio. Se deberá mostrar la
 superficie y el volumen de cada edificio.*/
-        ArrayList<EdificioServicio> edificios = new ArrayList();
+        ArrayList<Edificio> edificios = new ArrayList();
+        EdificioServicio edifServ = new EdificioServicio();
 
         do {
-            EdificioServicio edif = new EdificioServicio();
-            edif.crearEdificio();
+            Edificio edif = edifServ.crearEdificio();
             edificios.add(edif);
         } while (edificios.size() < 4);
- 
-        for (EdificioServicio edificio : edificios) {
-            System.out.println(edificio);  
+
+        for (Edificio edif : edificios) {
+            System.out.println(edif.toString());
         }
-       
     }
 }

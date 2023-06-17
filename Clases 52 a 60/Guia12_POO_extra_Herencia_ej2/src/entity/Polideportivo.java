@@ -69,8 +69,9 @@ Abierto, esta clase implementará los dos métodos abstractos y los atributos de
     public void setTecho(boolean techo) {
         this.techo = techo;
     }
-private double anchoSup;
-private double largoSup;
+    private double anchoSup;
+    private double largoSup;
+
     @Override
     public double calcularSuperficie() {
         System.out.println("Ingrese ancho del terreno");
@@ -79,8 +80,8 @@ private double largoSup;
         largo = input.nextDouble();
         double sup = largo * ancho;
         System.out.println("La Superficie del polideportivo es de " + sup + "m2");
-        anchoSup=ancho;
-        largoSup=largo;
+        anchoSup = ancho;
+        largoSup = largo;
         return sup;
     }
 
@@ -95,7 +96,12 @@ private double largoSup;
 
     @Override
     public String toString() {
-        return "Polideportivo{" + "nombre=" + nombre + ", techo=" + techo + ", anchoSup=" + anchoSup + ", largoSup=" + largoSup + '}';
+        return super.toString() + " - Polideportivo{"
+                + "nombre=" + nombre
+                + ", techo=" + techo
+                + ", anchoSup=" + anchoSup
+                + ", largoSup=" + largoSup
+                + '}';
     }
 
 }

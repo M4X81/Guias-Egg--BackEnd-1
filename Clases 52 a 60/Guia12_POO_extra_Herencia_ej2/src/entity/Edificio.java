@@ -64,6 +64,11 @@ public abstract class Edificio {
     public void setLargo(double largo) {
         this.largo = largo;
     }
+
+    @Override
+    public String toString() {
+        return "Edificio{" + "ancho=" + ancho + ", alto=" + alto + ", largo=" + largo + '}';
+    }
     
     /*• Método calcularSuperficie(): calcula la superficie del edificio.
 • Método calcularVolumen(): calcula el volumen del edifico.*/

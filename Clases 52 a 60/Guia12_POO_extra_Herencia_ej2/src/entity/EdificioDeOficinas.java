@@ -96,8 +96,14 @@ public class EdificioDeOficinas extends Edificio {
     }
 
     @Override
-    public String toString() {
-        return "EdificioDeOficinas{" + "numeroOficinas=" + numeroOficinas + ", personasPorOficina=" + personasPorOficina + ", numeroPisos=" + numeroPisos + ", anchoSup=" + anchoSup + ", largoSup=" + largoSup + '}';
-    }
+public String toString() {
+    return super.toString() + " - EdificioDeOficinas{" +
+            "numeroOficinas=" + numeroOficinas +
+            ", personasPorOficina=" + personasPorOficina +
+            ", numeroPisos=" + numeroPisos +
+            ", anchoSup=" + anchoSup +
+            ", largoSup=" + largoSup +
+            '}';
+}
 
 }
