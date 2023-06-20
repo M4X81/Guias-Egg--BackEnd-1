@@ -29,16 +29,17 @@ public class AlojamientoService {
     ArrayList<Alojamiento> alojamientos = new ArrayList();
 
     public void crearAlojamientos() {
-        Hotel4 h1 = new Hotel4("Hotel El Mirador 4****", "Calle Primavera 123", "Ciudad del Sol", "Ana López", 20, 30, 4, 0, true, 'A', "Restaurante La Barraca", 50);
+        Hotel4 h1 = new Hotel4("Hotel El Mirador 4****", "Calle Primavera 123", "Ciudad del Sol", "Ana López", 0, 20, 45, 4, true, 'A', "Restaurante La Barraca", 50);
         precioHabitacion(h1);
+//String nombreAloj, String direccion, String localidad, String encargado, double precioHab, int cantHabitaciones, int numCamas, int cantPisos,boolean gimnasio, char tipoGimnasio, String nombreResto, int capacidadResto
         //****puedo cargar cada objeto 1x1 debajo del mismo ej.: alojamientos.add(h1)
-        Hotel4 h2 = new Hotel4("Hotel Marina Bay 4****", "Avenida del Mar 456", "Costa Dorada", "Juan García", 10, 25, 2, 0, true, 'B', "Restaurante Manolo", 30);
+        Hotel4 h2 = new Hotel4("Hotel Marina Bay 4****", "Avenida del Mar 456", "Ciudad del Sol", "Juan García", 0, 10, 25, 2, true, 'B', "Restaurante Manolo", 30);
         precioHabitacion(h2);
-        Hotel4 h3 = new Hotel4("Hotel Bella Vista 4****", "Calle Principal 789", "Playa Azul", "María Rodríguez", 15, 40, 3, 0, true, 'B', "Restaurante El Paraíso", 40);
+        Hotel4 h3 = new Hotel4("Hotel Bella Vista 4****", "Calle Principal 789", "Ciudad Central", "María Rodríguez", 0, 15, 40, 3, true, 'B', "Restaurante El Paraíso", 40);
         precioHabitacion(h3);
-        Hotel5 h4 = new Hotel5("Hotel Central 5*****", "Avenida Principal 987", "Ciudad Central", "Carlos Martínez", 60, 150, 12, 0, true, 'A', "Restaurante Delicias", 100, 2, 10, 4);
+        Hotel5 h4 = new Hotel5("Hotel Central 5*****", "Avenida Principal 987", "Ciudad Central", "Carlos Martínez", 0, 60, 150, 12, true, 'A', "Restaurante Delicias", 100, 2, 10, 5);
         precioHabitacion(h4);
-        Hotel5 h5 = new Hotel5("Hotel Playa Dorada 5*****", "Calle del Mar 654", "Playa Blanca", "Laura Sánchez", 45, 105, 10, 0, true, 'A', "Restaurante Sabores del Mar", 90, 3, 12, 4);
+        Hotel5 h5 = new Hotel5("Hotel Playa Dorada 5*****", "Calle del Mar 654", "Ciudad Central", "Laura Sánchez", 0, 45, 105, 10, true, 'A', "Restaurante Sabores del Mar", 90, 3, 12, 4);
         precioHabitacion(h5);
         /*String nombreAloj, String direccion, String localidad, String encargado, int cantHabitaciones, int numCamas, int cantPisos, int precioHab, boolean gimnasio, char tipoGimnasio, String nombreResto, int capacidadResto,int salonesConferencia, int suites, int limosinas*/
  /* String nombreAloj, String direccion, String localidad, String encargado, int cantHabitaciones, int numCamas, int cantPisos, double precioHab,boolean gimnasio, char tipoGimnasio, String nombreResto, int capacidadResto */
@@ -191,7 +192,7 @@ ahora tendria q crear un metodo(varios) para ordenar las busquedas, por precio,p
      */
     public void mostrarAlojamientos() {
         for (Alojamiento alojamiento : alojamientos) {
-            System.out.println(alojamiento);
+            System.out.println(alojamiento.toString());
         }
     }
 
