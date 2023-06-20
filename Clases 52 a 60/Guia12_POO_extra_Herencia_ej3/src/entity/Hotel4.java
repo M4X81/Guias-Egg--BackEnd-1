@@ -17,28 +17,18 @@ package entity;
  */
 public class Hotel4 extends Hotel{
     protected boolean gimnasio;
+    protected char tipoGimnasio;
     protected String nombreResto;
     protected int capacidadResto;
+
 
     public Hotel4() {
     }
 
-    public Hotel4(boolean gimnasio, String nombreResto, int capacidadResto) {
+    public Hotel4(String nombreAloj, String direccion, String localidad, String encargado, double precioHab, int cantHabitaciones, int numCamas, int cantPisos,boolean gimnasio, char tipoGimnasio, String nombreResto, int capacidadResto) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab, cantHabitaciones, numCamas, cantPisos);
         this.gimnasio = gimnasio;
-        this.nombreResto = nombreResto;
-        this.capacidadResto = capacidadResto;
-    }
-
-    public Hotel4(boolean gimnasio, String nombreResto, int capacidadResto, int cantHabitaciones, int numCamas, int cantPisos, double precioHab) {
-        super(cantHabitaciones, numCamas, cantPisos, precioHab);
-        this.gimnasio = gimnasio;
-        this.nombreResto = nombreResto;
-        this.capacidadResto = capacidadResto;
-    }
-
-    public Hotel4(String nombreAloj, String direccion, String localidad, String encargado,boolean gimnasio, String nombreResto, int capacidadResto, int cantHabitaciones, int numCamas, int cantPisos, double precioHab) {
-        super(nombreAloj, direccion, localidad, encargado, cantHabitaciones, numCamas, cantPisos, precioHab);
-        this.gimnasio = gimnasio;
+        this.tipoGimnasio = tipoGimnasio;
         this.nombreResto = nombreResto;
         this.capacidadResto = capacidadResto;
     }
@@ -49,6 +39,14 @@ public class Hotel4 extends Hotel{
 
     public void setGimnasio(boolean gimnasio) {
         this.gimnasio = gimnasio;
+    }
+
+    public char getTipoGimnasio() {
+        return tipoGimnasio;
+    }
+
+    public void setTipoGimnasio(char tipoGimnasio) {
+        this.tipoGimnasio = tipoGimnasio;
     }
 
     public String getNombreResto() {
@@ -66,4 +64,17 @@ public class Hotel4 extends Hotel{
     public void setCapacidadResto(int capacidadResto) {
         this.capacidadResto = capacidadResto;
     }
+
+ 
+
+    
+    @Override
+public String toString() {
+    String parentString = super.toString();
+    return parentString + 
+            //"Gimnasio= " + gimnasio + "\n" +
+            "Tipo de Gimnasio=" + tipoGimnasio + "\n" +
+            "Nombre Restaurante= " + nombreResto + "\n" +
+            "Capacidad Restaurante=" + capacidadResto + "\n";
+}
 }

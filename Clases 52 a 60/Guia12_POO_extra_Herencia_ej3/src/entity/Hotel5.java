@@ -14,11 +14,14 @@ será.
  */
 package entity;
 
+import interfaces.InterfacePrecio;
+
 /**
  *
  * @author Max
  */
-public final class Hotel5 extends Hotel4{
+public final class Hotel5 extends Hotel4 implements InterfacePrecio {
+
     public int salonesConferencia;
     public int suites;
     public int limosinas;
@@ -26,32 +29,14 @@ public final class Hotel5 extends Hotel4{
     public Hotel5() {
     }
 
-    public Hotel5(int salonesConferencia, int suites, int limosinas) {
+    public Hotel5(String nombreAloj, String direccion, String localidad, String encargado, double precioHab, int cantHabitaciones, int numCamas, int cantPisos, boolean gimnasio, char tipoGimnasio, String nombreResto, int capacidadResto,int salonesConferencia, int suites, int limosinas) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab, cantHabitaciones, numCamas, cantPisos, gimnasio, tipoGimnasio, nombreResto, capacidadResto);
         this.salonesConferencia = salonesConferencia;
         this.suites = suites;
         this.limosinas = limosinas;
     }
 
-    public Hotel5(boolean gimnasio, String nombreResto, int capacidadResto,int salonesConferencia, int suites, int limosinas) {
-        super(gimnasio, nombreResto, capacidadResto);
-        this.salonesConferencia = salonesConferencia;
-        this.suites = suites;
-        this.limosinas = limosinas;
-    }
-
-    public Hotel5(boolean gimnasio, String nombreResto, int capacidadResto, int cantHabitaciones, int numCamas, int cantPisos, double precioHab,int salonesConferencia, int suites, int limosinas) {
-        super(gimnasio, nombreResto, capacidadResto, cantHabitaciones, numCamas, cantPisos, precioHab);
-        this.salonesConferencia = salonesConferencia;
-        this.suites = suites;
-        this.limosinas = limosinas;
-    }
-
-    public Hotel5(String nombreAloj, String direccion, String localidad, String encargado, boolean gimnasio, String nombreResto, int capacidadResto, int cantHabitaciones, int numCamas, int cantPisos, double precioHab,int salonesConferencia, int suites, int limosinas) {
-        super(nombreAloj, direccion, localidad, encargado, gimnasio, nombreResto, capacidadResto, cantHabitaciones, numCamas, cantPisos, precioHab);
-        this.salonesConferencia = salonesConferencia;
-        this.suites = suites;
-        this.limosinas = limosinas;
-    }
+   
 
     public int getSalonesConferencia() {
         return salonesConferencia;
@@ -77,4 +62,20 @@ public final class Hotel5 extends Hotel4{
         this.limosinas = limosinas;
     }
 
+    @Override
+    public String toString() {
+        String parentString = super.toString();
+        return parentString
+                + //            "gimnasio=" + gimnasio + "\n" +
+                //            "tipo Gimnasio=" + tipoGimnasio + "\n" +
+                //            "nombre Resto=" + nombreResto + "\n" +
+                //            "capacidad Resto=" + capacidadResto + "\n" +
+                "Salones de Conferencia= " + salonesConferencia + "\n"
+                + "Cantidad de Suites= " + suites + "\n"
+                + "Cantidad de limosinas= " + limosinas + "\n";
+    }
+    @Override
+    public double getPrecio() {
+        return precioHab;
+    }
 }

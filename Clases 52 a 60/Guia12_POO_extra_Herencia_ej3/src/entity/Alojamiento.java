@@ -51,31 +51,34 @@ package entity;
  * @author Max
  */
 public class Alojamiento {
+
     /*
     Los alojamientos se identifican por un nombre, una dirección,
 una localidad y un gerente encargado del lugar. La compañía trabaja con dos tipos de
 alojamientos: Hoteles y Alojamientos Extrahoteleros.
-    */
+     */
     protected String nombreAloj;
     protected String direccion;
     protected String localidad;
     protected String encargado;
+    protected double precioHab;
 
     public Alojamiento() {
     }
 
-    public Alojamiento(String nombreAloj, String direccion, String localidad, String encargado) {
+    public Alojamiento(String nombreAloj, String direccion, String localidad, String encargado, double precioHab) {
         this.nombreAloj = nombreAloj;
         this.direccion = direccion;
         this.localidad = localidad;
         this.encargado = encargado;
+        this.precioHab = precioHab;
     }
 
     public String getNombreAloj() {
         return nombreAloj;
     }
 
-    public void setNombre(String nombreAloj) {
+    public void setNombreAloj(String nombreAloj) {
         this.nombreAloj = nombreAloj;
     }
 
@@ -103,4 +106,21 @@ alojamientos: Hoteles y Alojamientos Extrahoteleros.
         this.encargado = encargado;
     }
 
+    public double getPrecioHab() {
+        return precioHab;
+    }
+
+    public void setPrecioHab(double precioHab) {
+        this.precioHab = precioHab;
+    }
+
+ 
+
+    @Override
+    public String toString() {
+        return "Nombre del alojamiento: " + nombreAloj + "\n"
+                + "Dirección: " + direccion + "\n"
+                + "Localidad: " + localidad + "\n"
+                + "Nombre del encargado: " + encargado + "\n";
+    }
 }

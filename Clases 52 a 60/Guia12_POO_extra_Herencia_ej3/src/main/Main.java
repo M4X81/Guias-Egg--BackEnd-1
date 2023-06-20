@@ -32,12 +32,17 @@ Realizar un sistema de consulta que le permite al usuario consultar por diferent
  */
 package main;
 
+import service.AlojamientoService;
+
 /**
  *
  * @author Max
  */
 public class Main {
     public static void main(String[] args) {
-        
+
+        AlojamientoService a1 = new AlojamientoService();
+        a1.menu();
+       
     }
 }

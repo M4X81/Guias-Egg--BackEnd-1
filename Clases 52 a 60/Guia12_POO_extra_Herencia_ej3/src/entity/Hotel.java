@@ -21,24 +21,16 @@ public class Hotel extends Alojamiento{
     protected int cantHabitaciones;
     protected int numCamas;
     protected int cantPisos;
-    protected double precioHab;
+
 
     public Hotel() {
     }
 
-    public Hotel(int cantHabitaciones, int numCamas, int cantPisos, double precioHab) {
+    public Hotel(String nombreAloj, String direccion, String localidad, String encargado, double precioHab,int cantHabitaciones, int numCamas, int cantPisos) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab);
         this.cantHabitaciones = cantHabitaciones;
         this.numCamas = numCamas;
         this.cantPisos = cantPisos;
-        this.precioHab = precioHab;
-    }
-
-    public Hotel(String nombreAloj, String direccion, String localidad, String encargado,int cantHabitaciones, int numCamas, int cantPisos, double precioHab) {
-        super(nombreAloj, direccion, localidad, encargado);
-        this.cantHabitaciones = cantHabitaciones;
-        this.numCamas = numCamas;
-        this.cantPisos = cantPisos;
-        this.precioHab = precioHab;
     }
 
     public int getCantHabitaciones() {
@@ -65,12 +57,15 @@ public class Hotel extends Alojamiento{
         this.cantPisos = cantPisos;
     }
 
-    public double getPrecioHab() {
-        return precioHab;
-    }
-
-    public void setPrecioHab(double precioHab) {
-        this.precioHab = precioHab;
-    }
-    
+  
+        
+    @Override
+public String toString() {
+    String parentString = super.toString();
+    return parentString + 
+            "Cantidad de Habitaciones= " + cantHabitaciones + "\n" +
+            "Número de Camas= " + numCamas + "\n" +
+            "Cantidad de Pisos= " + cantPisos + "\n" +
+            "Precio por Habitacion= " + precioHab + "$ \n";
+}
 }

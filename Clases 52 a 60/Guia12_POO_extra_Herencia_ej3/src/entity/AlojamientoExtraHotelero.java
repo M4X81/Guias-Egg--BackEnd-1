@@ -15,9 +15,11 @@ package entity;
  *
  * @author Max
  */
-public class AlojamientoExtraHotelero extends Alojamiento{
+public class AlojamientoExtraHotelero extends Alojamiento {
+
     protected boolean privado;
     protected int superficie;
+  
 
     public AlojamientoExtraHotelero() {
     }
@@ -27,10 +29,23 @@ public class AlojamientoExtraHotelero extends Alojamiento{
         this.superficie = superficie;
     }
 
-    public AlojamientoExtraHotelero(String nombreAloj, String direccion, String localidad, String encargado,boolean privado, int superficie) {
-        super(nombreAloj, direccion, localidad, encargado);
+    public AlojamientoExtraHotelero(String nombreAloj, String direccion, String localidad, String encargado, double precioHab,boolean privado, int superficie) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab);
         this.privado = privado;
         this.superficie = superficie;
     }
-    
+
+  
+
+   
+
+    @Override
+    public String toString() {
+        String parentString = super.toString();
+        return parentString
+                + "Establecimiento privado = " + privado + "\n"
+                + "Superficie del predio= " + superficie + " m2 \n"
+                + "Precio estadia= " + precioHab + "$ \n";
+    }
+
 }

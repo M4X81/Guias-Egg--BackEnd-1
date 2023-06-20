@@ -15,33 +15,24 @@ package entity;
  *
  * @author Max
  */
-public class Residencia extends AlojamientoExtraHotelero {
+public class Residencia extends AlojamientoExtraHotelero{
    public int cantHab;
    public boolean descuento;
+   public double totDto;
    public boolean campoDeportivo;
 
     public Residencia() {
     }
 
-    public Residencia(int cantHab, boolean descuento, boolean campoDeportivo) {
+    public Residencia(String nombreAloj, String direccion, String localidad, String encargado, double precioHab, boolean privado, int superficie,int cantHab, boolean descuento, double totDto, boolean campoDeportivo) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab, privado, superficie);
         this.cantHab = cantHab;
         this.descuento = descuento;
+        this.totDto = totDto;
         this.campoDeportivo = campoDeportivo;
     }
 
-    public Residencia(int cantHab, boolean descuento, boolean campoDeportivo, boolean privado, int superficie) {
-        super(privado, superficie);
-        this.cantHab = cantHab;
-        this.descuento = descuento;
-        this.campoDeportivo = campoDeportivo;
-    }
-
-    public Residencia(String nombreAloj, String direccion, String localidad, String encargado,int cantHab, boolean descuento, boolean campoDeportivo, boolean privado, int superficie) {
-        super(nombreAloj, direccion, localidad, encargado,privado, superficie);
-        this.cantHab = cantHab;
-        this.descuento = descuento;
-        this.campoDeportivo = campoDeportivo;
-    }
+ 
 
     public int getCantHab() {
         return cantHab;
@@ -59,6 +50,14 @@ public class Residencia extends AlojamientoExtraHotelero {
         this.descuento = descuento;
     }
 
+    public double getTotDto() {
+        return totDto;
+    }
+
+    public void setTotDto(double totDto) {
+        this.totDto = totDto;
+    }
+
     public boolean isCampoDeportivo() {
         return campoDeportivo;
     }
@@ -66,5 +65,18 @@ public class Residencia extends AlojamientoExtraHotelero {
     public void setCampoDeportivo(boolean campoDeportivo) {
         this.campoDeportivo = campoDeportivo;
     }
-   
+
+
+
+@Override
+public String toString() {
+    String parentString = super.toString();
+    return parentString +
+            "Cantidad de habitaciones: " + cantHab + "\n" +
+            "Tiene descuento: " + descuento + "\n" +
+            "Total de descuento: " + totDto + "\n" +
+            "Tiene campo deportivo: " + campoDeportivo + "\n" +
+            "Precio de la residencia: " + precioHab + "\n";
+}
+
 }

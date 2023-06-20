@@ -15,33 +15,24 @@ package entity;
  *
  * @author Max
  */
-public class Camping extends AlojamientoExtraHotelero {
+public class Camping extends AlojamientoExtraHotelero{
+
     public int maxCarpas;
     public int banios;
     public boolean restaurante;
+ 
 
     public Camping() {
     }
 
-    public Camping(int maxCarpas, int banios, boolean restaurante) {
+    public Camping(String nombreAloj, String direccion, String localidad, String encargado, double precioHab, boolean privado, int superficie,int maxCarpas, int banios, boolean restaurante) {
+        super(nombreAloj, direccion, localidad, encargado, precioHab, privado, superficie);
         this.maxCarpas = maxCarpas;
         this.banios = banios;
         this.restaurante = restaurante;
     }
 
-    public Camping(int maxCarpas, int banios, boolean restaurante, boolean privado, int superficie) {
-        super(privado, superficie);
-        this.maxCarpas = maxCarpas;
-        this.banios = banios;
-        this.restaurante = restaurante;
-    }
 
-    public Camping(String nombreAloj, String direccion, String localidad, String encargado,int maxCarpas, int banios, boolean restaurante, boolean privado, int superficie) {
-        super(nombreAloj, direccion, localidad, encargado,privado, superficie);
-        this.maxCarpas = maxCarpas;
-        this.banios = banios;
-        this.restaurante = restaurante;
-    }
 
     public int getMaxCarpas() {
         return maxCarpas;
@@ -66,5 +57,16 @@ public class Camping extends AlojamientoExtraHotelero {
     public void setRestaurante(boolean restaurante) {
         this.restaurante = restaurante;
     }
-    
+
+  
+
+    @Override
+    public String toString() {
+        String parentString = super.toString();
+        return parentString
+                + "Máximo de carpas: " + maxCarpas + "\n"
+                + "Cantidad de baños: " + banios + "\n"
+                + "Tiene restaurante: " + restaurante + "\n"
+                + "Precio del camping: " + precioHab + "\n";
+    }
 }
