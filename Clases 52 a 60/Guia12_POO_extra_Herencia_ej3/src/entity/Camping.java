@@ -67,6 +67,6 @@ public class Camping extends AlojamientoExtraHotelero{
                 + "Máximo de carpas: " + maxCarpas + "\n"
                 + "Cantidad de baños: " + banios + "\n"
                 + "Tiene restaurante: " + restaurante + "\n"
-                + "Precio del camping: " + precioHab + "\n";
+                + "Precio del camping: " + precioHab + " $ \n";
     }
 }

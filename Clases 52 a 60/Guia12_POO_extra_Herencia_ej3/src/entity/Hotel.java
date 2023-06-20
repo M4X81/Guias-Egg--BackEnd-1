@@ -65,7 +65,6 @@ public String toString() {
     return parentString + 
             "Cantidad de Habitaciones= " + cantHabitaciones + "\n" +
             "Número de Camas= " + numCamas + "\n" +
-            "Cantidad de Pisos= " + cantPisos + "\n" +
-            "Precio por Habitacion= " + precioHab + "$ \n";
+            "Cantidad de Pisos= " + cantPisos + "\n";
 }
 }

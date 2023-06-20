@@ -70,7 +70,8 @@ public final class Hotel5 extends Hotel4 {
                 //            "capacidad Resto=" + capacidadResto + "\n" +
                 "Salones de Conferencia= " + salonesConferencia + "\n"
                 + "Cantidad de Suites= " + suites + "\n"
-                + "Cantidad de limosinas= " + limosinas + "\n";
+                + "Cantidad de limosinas= " + limosinas + "\n"+
+                "Precio por Habitacion= " + precioHab + "$ \n";
     }
  
 }

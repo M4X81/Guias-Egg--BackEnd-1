@@ -35,17 +35,29 @@ public class AlojamientoExtraHotelero extends Alojamiento {
         this.superficie = superficie;
     }
 
-  
+    public boolean isPrivado() {
+        return privado;
+    }
 
-   
+    public void setPrivado(boolean privado) {
+        this.privado = privado;
+    }
+
+    public int getSuperficie() {
+        return superficie;
+    }
+
+    public void setSuperficie(int superficie) {
+        this.superficie = superficie;
+    }
 
     @Override
     public String toString() {
         String parentString = super.toString();
         return parentString
                 + "Establecimiento privado = " + privado + "\n"
-                + "Superficie del predio= " + superficie + " m2 \n"
-                + "Precio estadia= " + precioHab + "$ \n";
+                + "Superficie del predio= " + superficie + " m2 \n";
+                
     }
 
 }

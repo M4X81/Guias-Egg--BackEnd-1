@@ -75,6 +75,7 @@ public String toString() {
             //"Gimnasio= " + gimnasio + "\n" +
             "Tipo de Gimnasio=" + tipoGimnasio + "\n" +
             "Nombre Restaurante= " + nombreResto + "\n" +
-            "Capacidad Restaurante=" + capacidadResto + "\n";
+            "Capacidad Restaurante=" + capacidadResto + "\n"+
+            "Precio por Habitacion= " + precioHab + "$ \n";
 }
 }

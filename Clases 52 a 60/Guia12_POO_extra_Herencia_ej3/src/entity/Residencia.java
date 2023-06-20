@@ -76,7 +76,7 @@ public String toString() {
             "Tiene descuento: " + descuento + "\n" +
             "Total de descuento: " + totDto + "\n" +
             "Tiene campo deportivo: " + campoDeportivo + "\n" +
-            "Precio de la residencia: " + precioHab + "\n";
+            "Precio de la residencia: " + precioHab + " $ \n";
 }
 
 }
