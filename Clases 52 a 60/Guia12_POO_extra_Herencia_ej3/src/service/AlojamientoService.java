@@ -198,7 +198,7 @@ ahora tendria q crear un metodo(varios) para ordenar las busquedas, por precio,p
    public void ordenarPorPrecio() {
     Collections.sort(alojamientos, new PrecioComparator().reversed());
     System.out.println("Búsqueda por precio (de mayor a menor):");
-    mostrarAlojamientos();
+    //mostrarAlojamientos();
 }
 
 

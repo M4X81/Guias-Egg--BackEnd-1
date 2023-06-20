@@ -14,13 +14,11 @@ será.
  */
 package entity;
 
-import interfaces.InterfacePrecio;
-
 /**
  *
  * @author Max
  */
-public final class Hotel5 extends Hotel4 implements InterfacePrecio {
+public final class Hotel5 extends Hotel4 {
 
     public int salonesConferencia;
     public int suites;
@@ -74,8 +72,5 @@ public final class Hotel5 extends Hotel4 implements InterfacePrecio {
                 + "Cantidad de Suites= " + suites + "\n"
                 + "Cantidad de limosinas= " + limosinas + "\n";
     }
-    @Override
-    public double getPrecio() {
-        return precioHab;
-    }
+ 
 }
