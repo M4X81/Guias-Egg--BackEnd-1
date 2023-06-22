@@ -27,6 +27,7 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
 package entity;
 
 import enums.Departamento;
+import enums.EstadoCivil;
 import interfaces.Empleado;
 
 /**
@@ -44,13 +45,7 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     public Profesor() {
     }
 
-    public Profesor(Departamento departamento, Integer fechaIncorp, Integer numDespacho) {
-        this.departamento = departamento;
-        this.fechaIncorp = fechaIncorp;
-        this.numDespacho = numDespacho;
-    }
-
-    public Profesor(Departamento departamento, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, boolean estadoCivil) {
+    public Profesor(Departamento departamento, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
         super(nombre, apellido, identificacion, estadoCivil);
         this.departamento = departamento;
         this.fechaIncorp = fechaIncorp;

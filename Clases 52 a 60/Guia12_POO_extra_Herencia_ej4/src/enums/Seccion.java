@@ -6,5 +6,14 @@ package enums;
  */
 public enum Seccion {
     //sección(biblioteca, decanato, secretaría, ...).
-    BIBLIOTECA, DECANATO, SECRETARIA;
+    BIBLIOTECA,
+    DECANATO,
+    SECRETARIA,
+    ADMINISTRACION,
+    REGISTRO_ACADEMICO,
+    RECURSOS_HUMANOS,
+    FINANZAS,
+    SERVICIOS_ESTUDIANTILES,
+    MANTENIMIENTO,
+    SEGURIDAD;
 }

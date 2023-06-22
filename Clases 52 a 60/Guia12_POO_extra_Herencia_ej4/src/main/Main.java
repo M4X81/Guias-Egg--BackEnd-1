@@ -26,12 +26,15 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package main;
 
+import service.PersonaServicio;
+
 /**
  *
  * @author Max
  */
 public class Main {
     public static void main(String[] args) {
-        
+        PersonaServicio p1 = new PersonaServicio();
+        p1.crearPersona();
     }
 }

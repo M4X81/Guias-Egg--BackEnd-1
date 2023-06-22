@@ -26,6 +26,7 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package entity;
 
+import enums.EstadoCivil;
 import enums.Seccion;
 import interfaces.Empleado;
 
@@ -50,7 +51,7 @@ public class PersonalServ extends Persona implements Empleado {
         this.numDespacho = numDespacho;
     }
 
-    public PersonalServ(Seccion seccion, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, boolean estadoCivil) {
+    public PersonalServ(Seccion seccion, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
         super(nombre, apellido, identificacion, estadoCivil);
         this.seccion = seccion;
         this.fechaIncorp = fechaIncorp;

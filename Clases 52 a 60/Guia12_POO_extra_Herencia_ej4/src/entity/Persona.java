@@ -26,25 +26,30 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package entity;
 
+import enums.EstadoCivil;
+import java.util.Scanner;
+
 /**
  *
  * @author Max
  */
 public class Persona {
+
     //Clase Padre
     /*
     Por cada persona, se debe conocer, al menos, su nombre y apellidos, su número de
 identificación y su estado civil.
-    */
+     */
     protected String nombre;
     protected String apellido;
-    protected Integer identificacion;
-    protected boolean estadoCivil;
+    protected static Integer identificacion = 1000;
+    protected EstadoCivil estadoCivil;
+    Scanner input = new Scanner(System.in).useDelimiter("\n");
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, Integer identificacion, boolean estadoCivil) {
+    public Persona(String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
@@ -75,12 +80,88 @@ identificación y su estado civil.
         this.identificacion = identificacion;
     }
 
-    public boolean isEstadoCivil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstadoCivil(boolean estadoCivil) {
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
-    
+
+    public void cargarEstadoCivil() {
+        System.out.println("Opciones de estado civil:");
+
+        for (int i = 0; i < EstadoCivil.values().length; i++) {
+            System.out.println((i + 1) + ". " + EstadoCivil.values()[i]);
+        }
+
+        System.out.print("Seleccione su estado civil: ");
+        System.out.println("");
+        int opcionSeleccionada = input.nextInt();
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    estadoCivil = EstadoCivil.CASADO_A;
+                    break;
+                case 2:
+                    estadoCivil = EstadoCivil.SOLTERO_A;
+                    break;
+                case 3:
+                    estadoCivil = EstadoCivil.DIVORCIADO_A;
+                    break;
+                case 4:
+                    estadoCivil = EstadoCivil.VIUDO_A;
+                    break;
+                case 5:
+                    estadoCivil = EstadoCivil.OTRO;
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Estado civil asignado: " + estadoCivil);
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+
+    }
+
+    public void cambioEstadoCivil() {
+        System.out.println("Modificando su estado civil...");
+        System.out.println("Estado civil actual: " + estadoCivil);
+        System.out.println("Opciones de estado civil:");
+
+        for (EstadoCivil opcion : EstadoCivil.values()) {
+            System.out.println(opcion);
+        }
+
+        System.out.print("Seleccione su nuevo estado civil: ");
+
+        int opcionSeleccionada = input.nextInt();
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    estadoCivil = EstadoCivil.CASADO_A;
+                    break;
+                case 2:
+                    estadoCivil = EstadoCivil.SOLTERO_A;
+                    break;
+                case 3:
+                    estadoCivil = EstadoCivil.DIVORCIADO_A;
+                    break;
+                case 4:
+                    estadoCivil = EstadoCivil.VIUDO_A;
+                    break;
+                case 5:
+                    estadoCivil = EstadoCivil.OTRO;
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+
+        //this.estadoCivil = estadoCivil;
+        System.out.println("Modificando su estado civil...");
+        System.out.println("Estado civil modificado: " + estadoCivil);
+    }
+
 }

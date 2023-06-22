@@ -26,6 +26,8 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package entity;
 
+import enums.EstadoCivil;
+
 /**
  *
  * @author Max
@@ -42,7 +44,7 @@ matriculados.*/
         this.curso = curso;
     }
 
-    public Estudiante(String nombre, String apellido, Integer identificacion, boolean estadoCivil,String curso) {
+    public Estudiante(String curso, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
         super(nombre, apellido, identificacion, estadoCivil);
         this.curso = curso;
     }
@@ -54,6 +56,5 @@ matriculados.*/
     public void setCurso(String curso) {
         this.curso = curso;
     }
-    
-    
+  
 }
