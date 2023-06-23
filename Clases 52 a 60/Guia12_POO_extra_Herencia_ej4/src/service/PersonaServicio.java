@@ -28,7 +28,11 @@ package service;
 
 import entity.Estudiante;
 import entity.Persona;
+import entity.PersonalServ;
+import entity.Profesor;
+import enums.EstadoCivil;
 import enums.Individuos;
+import interfaces.Empleado;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -48,28 +52,65 @@ public class PersonaServicio {
         estudiante.setNombre(input.next());
         System.out.println("Ingrese apellido");
         estudiante.setApellido(input.next());
-        System.out.println("Cargando numero de ID");
+        System.out.println("Cargando numero de ID...");
         persona.setIdentificacion(persona.getIdentificacion() + 1);
-        System.out.println(persona.getIdentificacion());
-        personas.add(persona);
-
-       
+        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+        System.out.println(" ");
+        estudiante.cargarEstadoCivil();
+        System.out.println(" ");
+        System.out.println("A continuación seleccione materia a matricular...");
+        estudiante.cargarMateria();
+        personas.add(estudiante);
     }
 
     public void crearProfesor() {
-
+        Profesor profesor = new Profesor();
+        System.out.println("Ingrese nombre del agente");
+        profesor.setNombre(input.next());
+        System.out.println("Ingrese apellido");
+        profesor.setApellido(input.next());
+        System.out.println("Cargando numero de ID...");
+        persona.setIdentificacion(persona.getIdentificacion() + 1);
+        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+        System.out.println(" ");
+        profesor.cargarEstadoCivil();
+        System.out.println(" ");
+        profesor.cargarAnioIncorporacion();
+        System.out.println("A continuación seleccione departamento al que pertenece...");
+        profesor.cargarMateria();
+        System.out.println("");
+        profesor.cargarNumDespacho();
+        personas.add(profesor);
     }
 
     public void crearPersonalServ() {
-
+        PersonalServ servicio = new PersonalServ();
+        System.out.println("Ingrese nombre del agente");
+        servicio.setNombre(input.next());
+        System.out.println("Ingrese apellido");
+        servicio.setApellido(input.next());
+        System.out.println("Cargando numero de ID...");
+        persona.setIdentificacion(persona.getIdentificacion() + 1);
+        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+        System.out.println(" ");
+        servicio.cargarEstadoCivil();
+        System.out.println(" ");
+        servicio.cargarAnioIncorporacion();
+        System.out.println("A continuación indique sección a la que pertenece...");
+        servicio.asignarSeccion();
+        System.out.println("");
+        servicio.cargarNumDespacho();
+        personas.add(servicio);
     }
 
     public void crearPersona() {
         int opcion;
         System.out.println("Ingrese tipo de individuo que desea cargar");
-        for (Individuos indiv : Individuos.values()) {
-            System.out.println(indiv);
+
+        for (int i = 0; i < Individuos.values().length; i++) {
+            System.out.println((i + 1) + ". " + Individuos.values()[i]);
         }
+
         opcion = input.nextInt();
         do {
             switch (opcion) {
@@ -84,7 +125,72 @@ public class PersonaServicio {
                     break;
             }
 
-        } while (opcion < 1 || opcion > 3); 
+        } while (opcion < 1 || opcion > 3);
+    }
+
+    public void menu() {
+        int opcion;
+        Persona persona = null;
+        do {
+            System.out.println("Sistema de Gestión de Facultad");
+            System.out.println("1. Cargar una persona");
+            System.out.println("2. Cambiar estado civil de una persona");
+            System.out.println("3. Reasignar despacho a un empleado");
+            System.out.println("4. Matricular un estudiante en un nuevo curso");
+            System.out.println("5. Cambiar departamento de un profesor");
+            System.out.println("6. Trasladar sección de un empleado del personal de servicio");
+            System.out.println("7. Imprimir información de cada tipo de individuo");
+            System.out.println("8. Salir");
+            System.out.print("Ingrese una opción: ");
+            opcion = input.nextInt();
+            System.out.println();
+
+            switch (opcion) {
+                case 1:
+                    crearPersona();
+                    break;
+                case 2:
+                    persona.cambioEstadoCivil();
+                    break;
+                case 3:
+                    Empleado empleado = null;
+                    if (empleado instanceof Profesor) {
+                        ((Profesor) empleado).cargarNumDespacho();
+                    } else if (empleado instanceof PersonalServ) {
+                        ((PersonalServ) empleado).cargarNumDespacho();
+                    }
+                    break;
+                case 4:
+                    persona.reasignarMateria();
+                    break;
+                case 5:
+                    persona.reasignarMateria();
+                    break;
+                case 6:
+                    persona.reasignarSeccion();
+                    break;
+                case 7:
+                    persona.toString();
+                    break;
+                case 8:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    break;
+            }
+
+            System.out.println();
+        } while (opcion != 8);
+    }
+
+    public Persona buscarPersonaPorId(int id) {
+        for (Persona persona : personas) {
+            if (persona.getIdentificacion() == id) {
+                return persona;
+            }
+        }
+        return null; 
     }
 
 }

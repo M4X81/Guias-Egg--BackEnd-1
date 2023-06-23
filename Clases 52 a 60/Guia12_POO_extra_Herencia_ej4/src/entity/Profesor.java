@@ -39,8 +39,8 @@ public class Profesor extends Persona implements Empleado {
     /*• Por lo que se refiere a los profesores, es necesario gestionar a qué departamento
 pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     private Departamento departamento;
-    private Integer fechaIncorp;
-    private Integer numDespacho;
+    private Integer fechaIncorp = (int) (Math.random()*40) + 1981;
+    private static Integer numDespacho = (int) (Math.random()*100) +1;
 
     public Profesor() {
     }
@@ -59,17 +59,26 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
     }
-    
+
+    @Override
+    public String toString() {
+        String parentString = super.toString();
+        return parentString + "\n" 
+                + "Tipo: Profesor " + "\n"
+                +"Departamento= " + departamento +"\n"
+                +"Fecha de Incorporación= " + fechaIncorp + "\n"
+                +" Número de despacho: " + numDespacho+"\n";
+    }
     
 
     @Override
     public void cargarAnioIncorporacion() {
-        
+        System.out.println("El año de incorporacion  para su ID es el siguiente: " + getFechaIncorp());
     }
 
     @Override
     public void cargarNumDespacho() {
-        
+        System.out.println("Su número de despacho es: " + getNumDespacho());
     }
 
     @Override

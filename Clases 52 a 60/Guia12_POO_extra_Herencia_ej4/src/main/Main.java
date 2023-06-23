@@ -35,6 +35,6 @@ import service.PersonaServicio;
 public class Main {
     public static void main(String[] args) {
         PersonaServicio p1 = new PersonaServicio();
-        p1.crearPersona();
+        p1.menu();
     }
 }

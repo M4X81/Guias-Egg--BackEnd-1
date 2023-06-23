@@ -26,6 +26,7 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package entity;
 
+import enums.Departamento;
 import enums.EstadoCivil;
 
 /**
@@ -33,28 +34,83 @@ import enums.EstadoCivil;
  * @author Max
  */
 public class Estudiante extends Persona {
+
     /*• En cuanto a los estudiantes, se requiere almacenar el curso en el que están
 matriculados.*/
-    private String curso;
+    private Departamento curso;
 
     public Estudiante() {
     }
 
-    public Estudiante(String curso) {
-        this.curso = curso;
-    }
-
-    public Estudiante(String curso, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
+    public Estudiante(Departamento curso, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
         super(nombre, apellido, identificacion, estadoCivil);
         this.curso = curso;
     }
 
-    public String getCurso() {
+    public Departamento getCurso() {
         return curso;
     }
 
-    public void setCurso(String curso) {
+    public void setCurso(Departamento curso) {
         this.curso = curso;
     }
-  
+
+    @Override
+    public String toString() {
+        String parentString = super.toString();
+        return parentString + "\n"
+                + "Tipo: Estudiante" + "\n"
+                + "Curso=" + curso + "\n";
+    }
+
+    public void reasignarCurso() {
+        System.out.println("La materia que esta cursando actualmente es: " + curso);
+        System.out.println("");
+        System.out.println("Opciones de materias: ");
+        for (int i = 0; i < Departamento.values().length; i++) {
+            System.out.println((i + 1) + ". " + Departamento.values()[i]);
+        }
+        System.out.print("Seleccione nueva materia a asignar: ");
+        System.out.println("");
+        int opcionSeleccionada = input.nextInt();
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    curso = Departamento.LENGUAJES;
+                    break;
+                case 2:
+                    curso = Departamento.MATEMATICAS;
+                    break;
+                case 3:
+                    curso = Departamento.ARQUITECTURA;
+                    break;
+                case 4:
+                    curso = Departamento.HISTORIA;
+                    break;
+                case 5:
+                    curso = Departamento.BIOLOGIA;
+                    break;
+                case 6:
+                    curso = Departamento.QUIMICA;
+                    break;
+                case 7:
+                    curso = Departamento.FISICA;
+                    break;
+                case 8:
+                    curso = Departamento.LITERATURA;
+                    break;
+                case 9:
+                    curso = Departamento.INFORMATICA;
+                    break;
+                case 10:
+                    curso = Departamento.ECONOMIA;
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Materia asignada: " + curso);
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+    }
+
 }
