@@ -91,9 +91,10 @@ identificación y su estado civil.
 
     @Override
     public String toString() {
-        return "Nombre= " + nombre + "\n"
-                + "Apellido= " + apellido + "\n"
-                + "Estado Civil= " + estadoCivil + "\n";
+        return "Nombre: " + nombre + "\n"
+                + "Apellido: " + apellido + "\n"
+                + "Estado Civil: " + estadoCivil + "\n"
+                + "Número ID: " + identificacion +"\n";
     }
 
 }

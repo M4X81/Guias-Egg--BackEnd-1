@@ -55,12 +55,11 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        persona.setIdentificacion(persona.getIdentificacion() + 1);
+        ((Estudiante)persona).setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
-        System.out.println("A continuación seleccione materia a matricular...");
         cargarCurso();
         personas.add(persona);
     }
@@ -72,7 +71,7 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        persona.setIdentificacion(persona.getIdentificacion() + 1);
+        ((Profesor)persona).setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
         cargarEstadoCivil();
@@ -92,7 +91,7 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        persona.setIdentificacion(persona.getIdentificacion() + 1);
+        ((PersonalServ)persona).setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
         cargarEstadoCivil();
@@ -220,14 +219,14 @@ public class PersonaServicio {
                     return;
             }
             System.out.println("Materia asignada: " +  ((Estudiante) persona).getCurso());
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
     }
 
     public void reasignarCurso() {
         System.out.print("Seleccione nueva materia a asignar: ");
         System.out.println("");
         cargarCurso();
-        System.out.println("Nueva materis asignada...");
+        System.out.println("Nueva materia asignada...");
 
     }
 
@@ -239,52 +238,52 @@ public class PersonaServicio {
         System.out.print("Seleccione departamento");
         System.out.println("");
         int opcionSeleccionada = input.nextInt();
-        Departamento departamento;
+        
         do {
             switch (opcionSeleccionada) {
                 case 1:
-                    departamento = Departamento.LENGUAJES;
+                    ((Profesor)persona).setDepartamento(Departamento.LENGUAJES); 
                     break;
                 case 2:
-                    departamento = Departamento.MATEMATICAS;
+                    ((Profesor)persona).setDepartamento(Departamento.MATEMATICAS);
                     break;
                 case 3:
-                    departamento = Departamento.ARQUITECTURA;
+                    ((Profesor)persona).setDepartamento(Departamento.ARQUITECTURA); 
                     break;
                 case 4:
-                    departamento = Departamento.HISTORIA;
+                    ((Profesor)persona).setDepartamento(Departamento.HISTORIA);
                     break;
                 case 5:
-                    departamento = Departamento.BIOLOGIA;
+                    ((Profesor)persona).setDepartamento(Departamento.BIOLOGIA);
                     break;
                 case 6:
-                    departamento = Departamento.QUIMICA;
+                    ((Profesor)persona).setDepartamento(Departamento.QUIMICA);
                     break;
                 case 7:
-                    departamento = Departamento.FISICA;
+                    ((Profesor)persona).setDepartamento(Departamento.FISICA);
                     break;
                 case 8:
-                    departamento = Departamento.LITERATURA;
+                    ((Profesor)persona).setDepartamento(Departamento.LITERATURA);
                     break;
                 case 9:
-                    departamento = Departamento.INFORMATICA;
+                    ((Profesor)persona).setDepartamento(Departamento.INFORMATICA);
                     break;
                 case 10:
-                    departamento = Departamento.ECONOMIA;
+                    ((Profesor)persona).setDepartamento(Departamento.ECONOMIA); 
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     return;
             }
-            System.out.println("Departamento asignada: " + departamento);
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+            System.out.println("Departamento asignada: " + ((Profesor)persona).getDepartamento());
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
 
     }
 
     public void reasignarDepartamento() {
-        System.out.println("Usted esta a punto de reasignar materia/despacho");
+        System.out.println("Usted esta a punto de reasignar departamento");
         cargarDepartamento();
-        System.out.println("Nueva materia asignada correctamente ");
+        System.out.println("Nueva departamento asignado correctamente ");
     }
 
     public void asignarSeccion() {
@@ -295,45 +294,45 @@ public class PersonaServicio {
         System.out.print("Seleccione sección");
         System.out.println("");
         int opcionSeleccionada = input.nextInt();
-        Seccion seccion;
+     
         do {
             switch (opcionSeleccionada) {
                 case 1:
-                    seccion = Seccion.ADMINISTRACION;
+                    ((PersonalServ)persona).setSeccion(Seccion.DECANATO); 
                     break;
                 case 2:
-                    seccion = Seccion.BIBLIOTECA;
+                    ((PersonalServ)persona).setSeccion(Seccion.BIBLIOTECA);
                     break;
                 case 3:
-                    seccion = Seccion.DECANATO;
+                    ((PersonalServ)persona).setSeccion(Seccion.DECANATO);
                     break;
                 case 4:
-                    seccion = Seccion.FINANZAS;
+                    ((PersonalServ)persona).setSeccion(Seccion.FINANZAS);
                     break;
                 case 5:
-                    seccion = Seccion.MANTENIMIENTO;
+                    ((PersonalServ)persona).setSeccion(Seccion.MANTENIMIENTO);
                     break;
                 case 6:
-                    seccion = Seccion.RECURSOS_HUMANOS;
+                    ((PersonalServ)persona).setSeccion(Seccion.RECURSOS_HUMANOS);
                     break;
                 case 7:
-                    seccion = Seccion.REGISTRO_ACADEMICO;
+                    ((PersonalServ)persona).setSeccion(Seccion.REGISTRO_ACADEMICO);
                     break;
                 case 8:
-                    seccion = Seccion.SECRETARIA;
+                    ((PersonalServ)persona).setSeccion(Seccion.SECRETARIA);
                     break;
                 case 9:
-                    seccion = Seccion.SEGURIDAD;
+                    ((PersonalServ)persona).setSeccion(Seccion.SEGURIDAD);
                     break;
                 case 10:
-                    seccion = Seccion.SERVICIOS_ESTUDIANTILES;
+                    ((PersonalServ)persona).setSeccion(Seccion.SERVICIOS_ESTUDIANTILES);
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     return;
             }
-            System.out.println("Sección asignada: " + seccion);
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+            System.out.println("Sección asignada: " + ((PersonalServ)persona).getSeccion());
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
     }
 
     public void reasignarSeccion() {
@@ -413,7 +412,7 @@ public class PersonaServicio {
                     }                   
                     break;
                 case 7:
-                    persona.toString();
+                    System.out.println(personas.toString());
                     break;
                 case 8:
                     System.out.println("Saliendo del sistema...");

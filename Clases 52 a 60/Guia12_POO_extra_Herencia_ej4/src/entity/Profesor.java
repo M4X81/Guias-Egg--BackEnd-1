@@ -63,11 +63,12 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     @Override
     public String toString() {
         String parentString = super.toString();
-        return parentString + "\n" 
-                + "Tipo: Profesor " + "\n"
-                +"Departamento= " + departamento +"\n"
-                +"Fecha de Incorporación= " + fechaIncorp + "\n"
-                +" Número de despacho: " + numDespacho+"\n";
+        return parentString 
+                + "Función: Profesor " + "\n"
+                +"Departamento: " + departamento +"\n"
+                +"Fecha de Incorporación: " + fechaIncorp + "\n"
+                +"Número de despacho: " + numDespacho+"\n"
+                +"\n";
     }
     
 

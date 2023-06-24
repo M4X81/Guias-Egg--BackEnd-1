@@ -70,10 +70,11 @@ public class PersonalServ extends Persona implements Empleado {
     public String toString() {
         String parentString = super.toString();
         return parentString + "\n"
-                + "Tipo: Personal de servicio " + "\n"
+                + "Función: Personal de servicio " + "\n"
                 + "Sección= " + seccion + "\n"
                 + "Fecha de Incorporación= " + fechaIncorp + "\n"
-                + " Número de despacho: " + numDespacho + "\n";
+                + "Número de despacho: " + numDespacho + "\n"
+                +"\n";
     }
 
     @Override

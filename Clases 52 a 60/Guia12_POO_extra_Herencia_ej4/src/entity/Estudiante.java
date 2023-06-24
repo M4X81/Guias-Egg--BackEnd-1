@@ -58,9 +58,10 @@ matriculados.*/
     @Override
     public String toString() {
         String parentString = super.toString();
-        return parentString + "\n"
-                + "Tipo: Estudiante" + "\n"
-                + "Curso=" + curso + "\n";
+        return parentString 
+                + "Función : Estudiante" + "\n"
+                + "Curso: " + curso + "\n"
+                +"\n";
     }
 
 //    public void reasignarCurso() {
