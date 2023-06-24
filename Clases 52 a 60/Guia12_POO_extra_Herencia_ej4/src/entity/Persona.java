@@ -26,9 +26,7 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
  */
 package entity;
 
-import enums.Departamento;
 import enums.EstadoCivil;
-import enums.Seccion;
 import java.util.Scanner;
 
 /**
@@ -47,7 +45,8 @@ identificación y su estado civil.
     protected static Integer identificacion = 1000;
     protected EstadoCivil estadoCivil;
     Scanner input = new Scanner(System.in).useDelimiter("\n");
-Persona persona;
+    Persona persona;
+
     public Persona() {
     }
 
@@ -95,162 +94,6 @@ Persona persona;
         return "Nombre= " + nombre + "\n"
                 + "Apellido= " + apellido + "\n"
                 + "Estado Civil= " + estadoCivil + "\n";
-    }
-
-    public void cargarEstadoCivil() {
-        System.out.println("Opciones de estado civil:");
-
-        for (int i = 0; i < EstadoCivil.values().length; i++) {
-            System.out.println((i + 1) + ". " + EstadoCivil.values()[i]);
-        }
-
-        System.out.print("Seleccione su estado civil: ");
-        System.out.println("");
-        int opcionSeleccionada = input.nextInt();
-        do {
-            switch (opcionSeleccionada) {
-                case 1:
-                    estadoCivil = EstadoCivil.CASADO_A;
-                    break;
-                case 2:
-                    estadoCivil = EstadoCivil.SOLTERO_A;
-                    break;
-                case 3:
-                    estadoCivil = EstadoCivil.DIVORCIADO_A;
-                    break;
-                case 4:
-                    estadoCivil = EstadoCivil.VIUDO_A;
-                    break;
-                case 5:
-                    estadoCivil = EstadoCivil.OTRO;
-                    break;
-                default:
-                    System.out.println("Opción inválida.");
-                    return;
-            }
-            System.out.println("Estado civil asignado: " + estadoCivil);
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
-
-    }
-
-    public void cambioEstadoCivil() {
-        System.out.println("Usted va a modificar su estado civil...");
-        
-        System.out.println("Estado civil actual: " + estadoCivil);
-        cargarEstadoCivil();
-        System.out.println("Modificando...");
-        System.out.println("Estado civil modificado: " + estadoCivil);
-    }
-
-    public void cargarMateria() {
-        System.out.println("Opciones de materias: ");
-        for (int i = 0; i < Departamento.values().length; i++) {
-            System.out.println((i + 1) + ". " + Departamento.values()[i]);
-        }
-        System.out.print("Seleccione materia/despacho");
-        System.out.println("");
-        int opcionSeleccionada = input.nextInt();
-        Departamento departamento;
-        do {
-            switch (opcionSeleccionada) {
-                case 1:
-                    departamento = Departamento.LENGUAJES;
-                    break;
-                case 2:
-                    departamento = Departamento.MATEMATICAS;
-                    break;
-                case 3:
-                    departamento = Departamento.ARQUITECTURA;
-                    break;
-                case 4:
-                    departamento = Departamento.HISTORIA;
-                    break;
-                case 5:
-                    departamento = Departamento.BIOLOGIA;
-                    break;
-                case 6:
-                    departamento = Departamento.QUIMICA;
-                    break;
-                case 7:
-                    departamento = Departamento.FISICA;
-                    break;
-                case 8:
-                    departamento = Departamento.LITERATURA;
-                    break;
-                case 9:
-                    departamento = Departamento.INFORMATICA;
-                    break;
-                case 10:
-                    departamento = Departamento.ECONOMIA;
-                    break;
-                default:
-                    System.out.println("Opción inválida.");
-                    return;
-            }
-            System.out.println("Materia asignada: " + departamento);
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
-
-    }
-
-    public void reasignarMateria() {
-        System.out.println("Usted esta a punto de reasignar materia/despacho");
-        cargarMateria();
-        System.out.println("Nueva materia asignada correctamente ");
-    }
-
-    public void asignarSeccion() {
-        System.out.println("Opciones de sección: ");
-        for (int i = 0; i < Seccion.values().length; i++) {
-            System.out.println((i + 1) + ". " + Seccion.values()[i]);
-        }
-        System.out.print("Seleccione sección");
-        System.out.println("");
-        int opcionSeleccionada = input.nextInt();
-        Seccion seccion;
-        do {
-            switch (opcionSeleccionada) {
-                case 1:
-                    seccion = Seccion.ADMINISTRACION;
-                    break;
-                case 2:
-                    seccion = Seccion.BIBLIOTECA;
-                    break;
-                case 3:
-                    seccion = Seccion.DECANATO;
-                    break;
-                case 4:
-                    seccion = Seccion.FINANZAS;
-                    break;
-                case 5:
-                    seccion = Seccion.MANTENIMIENTO;
-                    break;
-                case 6:
-                    seccion = Seccion.RECURSOS_HUMANOS;
-                    break;
-                case 7:
-                    seccion = Seccion.REGISTRO_ACADEMICO;
-                    break;
-                case 8:
-                    seccion = Seccion.SECRETARIA;
-                    break;
-                case 9:
-                    seccion = Seccion.SEGURIDAD;
-                    break;
-                case 10:
-                    seccion = Seccion.SERVICIOS_ESTUDIANTILES;
-                    break;
-                default:
-                    System.out.println("Opción inválida.");
-                    return;
-            }
-            System.out.println("Sección asignada: " + seccion);
-        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
-    }
-
-    public void reasignarSeccion() {
-        System.out.println("Reasignando sección...");
-        asignarSeccion();
-        System.out.println("Nueva sección asignada correctamente");
     }
 
 }

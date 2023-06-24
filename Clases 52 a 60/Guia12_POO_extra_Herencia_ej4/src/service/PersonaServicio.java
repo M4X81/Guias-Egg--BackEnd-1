@@ -30,8 +30,10 @@ import entity.Estudiante;
 import entity.Persona;
 import entity.PersonalServ;
 import entity.Profesor;
+import enums.Departamento;
 import enums.EstadoCivil;
 import enums.Individuos;
+import enums.Seccion;
 import interfaces.Empleado;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,63 +46,63 @@ public class PersonaServicio {
 
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     ArrayList<Persona> personas = new ArrayList<>();
-    Persona persona = new Persona();
+    Persona persona;
 
     public void crearEstudiante() {
-        Estudiante estudiante = new Estudiante();
+        persona = new Estudiante();
         System.out.println("Ingrese nombre del alumno");
-        estudiante.setNombre(input.next());
+        persona.setNombre(input.next());
         System.out.println("Ingrese apellido");
-        estudiante.setApellido(input.next());
+        persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
         persona.setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
-        estudiante.cargarEstadoCivil();
+        cargarEstadoCivil();
         System.out.println(" ");
         System.out.println("A continuación seleccione materia a matricular...");
-        estudiante.cargarMateria();
-        personas.add(estudiante);
+        cargarCurso();
+        personas.add(persona);
     }
 
     public void crearProfesor() {
-        Profesor profesor = new Profesor();
+        persona = new Profesor();
         System.out.println("Ingrese nombre del agente");
-        profesor.setNombre(input.next());
+        persona.setNombre(input.next());
         System.out.println("Ingrese apellido");
-        profesor.setApellido(input.next());
+        persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
         persona.setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
-        profesor.cargarEstadoCivil();
+        cargarEstadoCivil();
         System.out.println(" ");
-        profesor.cargarAnioIncorporacion();
+        ((Profesor)persona).cargarAnioIncorporacion();
         System.out.println("A continuación seleccione departamento al que pertenece...");
-        profesor.cargarMateria();
+        cargarDepartamento();
         System.out.println("");
-        profesor.cargarNumDespacho();
-        personas.add(profesor);
+        ((Profesor)persona).cargarNumDespacho();
+        personas.add(persona);
     }
 
     public void crearPersonalServ() {
-        PersonalServ servicio = new PersonalServ();
+        persona = new PersonalServ();
         System.out.println("Ingrese nombre del agente");
-        servicio.setNombre(input.next());
+        persona.setNombre(input.next());
         System.out.println("Ingrese apellido");
-        servicio.setApellido(input.next());
+        persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
         persona.setIdentificacion(persona.getIdentificacion() + 1);
         System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
         System.out.println(" ");
-        servicio.cargarEstadoCivil();
+        cargarEstadoCivil();
         System.out.println(" ");
-        servicio.cargarAnioIncorporacion();
+        ((PersonalServ)persona).cargarAnioIncorporacion();
         System.out.println("A continuación indique sección a la que pertenece...");
-        servicio.asignarSeccion();
+        asignarSeccion();
         System.out.println("");
-        servicio.cargarNumDespacho();
-        personas.add(servicio);
+        ((PersonalServ)persona).cargarNumDespacho();
+        personas.add(persona);
     }
 
     public void crearPersona() {
@@ -127,10 +129,221 @@ public class PersonaServicio {
 
         } while (opcion < 1 || opcion > 3);
     }
+    public void cargarEstadoCivil() {
+        System.out.println("Opciones de estado civil:");
+
+        for (int i = 0; i < EstadoCivil.values().length; i++) {
+            System.out.println((i + 1) + ". " + EstadoCivil.values()[i]);
+        }
+
+        System.out.print("Seleccione su estado civil: ");
+        System.out.println("");
+        int opcionSeleccionada = input.nextInt();
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    persona.setEstadoCivil(EstadoCivil.CASADO_A);
+                    break;
+                case 2:
+                    persona.setEstadoCivil(EstadoCivil.SOLTERO_A);
+                    break;
+                case 3:
+                    persona.setEstadoCivil(EstadoCivil.DIVORCIADO_A);
+                    break;
+                case 4:
+                    persona.setEstadoCivil(EstadoCivil.VIUDO_A);
+                    break;
+                case 5:
+                    persona.setEstadoCivil(EstadoCivil.OTRO); 
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Estado civil asignado: " + persona.getEstadoCivil());
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+
+    }
+
+    public void cambioEstadoCivil() {
+        
+        System.out.println("Usted va a modificar su estado civil...");
+        System.out.println("Estado civil actual: " + persona.getEstadoCivil());
+        cargarEstadoCivil();
+        System.out.println("Modificando...");
+        System.out.println("Estado civil modificado: " + persona.getEstadoCivil());
+    }
+
+    public void cargarCurso() {
+
+        System.out.println("Seleccione curso a matricular...");
+        System.out.println("Opciones de materias: ");
+        for (int i = 0; i < Departamento.values().length; i++) {
+            System.out.println((i + 1) + ". " + Departamento.values()[i]);
+        }
+
+        int opcionSeleccionada = input.nextInt();
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    ((Estudiante) persona).setCurso(Departamento.LENGUAJES);
+                    break;
+                case 2:
+                     ((Estudiante) persona).setCurso(Departamento.MATEMATICAS);
+                    break;
+                case 3:
+                     ((Estudiante) persona).setCurso(Departamento.ARQUITECTURA);
+                    break;
+                case 4:
+                     ((Estudiante) persona).setCurso(Departamento.HISTORIA);
+                    break;
+                case 5:
+                     ((Estudiante) persona).setCurso(Departamento.BIOLOGIA);
+                    break;
+                case 6:
+                     ((Estudiante) persona).setCurso(Departamento.QUIMICA);
+                    break;
+                case 7:
+                     ((Estudiante) persona).setCurso(Departamento.FISICA);
+                    break;
+                case 8:
+                     ((Estudiante) persona).setCurso(Departamento.LITERATURA);
+                    break;
+                case 9:
+                     ((Estudiante) persona).setCurso(Departamento.INFORMATICA);
+                    break;
+                case 10:
+                     ((Estudiante) persona).setCurso(Departamento.ECONOMIA);
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Materia asignada: " +  ((Estudiante) persona).getCurso());
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+    }
+
+    public void reasignarCurso() {
+        System.out.print("Seleccione nueva materia a asignar: ");
+        System.out.println("");
+        cargarCurso();
+        System.out.println("Nueva materis asignada...");
+
+    }
+
+    public void cargarDepartamento() {
+        System.out.println("Opciones de departamentos: ");
+        for (int i = 0; i < Departamento.values().length; i++) {
+            System.out.println((i + 1) + ". " + Departamento.values()[i]);
+        }
+        System.out.print("Seleccione departamento");
+        System.out.println("");
+        int opcionSeleccionada = input.nextInt();
+        Departamento departamento;
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    departamento = Departamento.LENGUAJES;
+                    break;
+                case 2:
+                    departamento = Departamento.MATEMATICAS;
+                    break;
+                case 3:
+                    departamento = Departamento.ARQUITECTURA;
+                    break;
+                case 4:
+                    departamento = Departamento.HISTORIA;
+                    break;
+                case 5:
+                    departamento = Departamento.BIOLOGIA;
+                    break;
+                case 6:
+                    departamento = Departamento.QUIMICA;
+                    break;
+                case 7:
+                    departamento = Departamento.FISICA;
+                    break;
+                case 8:
+                    departamento = Departamento.LITERATURA;
+                    break;
+                case 9:
+                    departamento = Departamento.INFORMATICA;
+                    break;
+                case 10:
+                    departamento = Departamento.ECONOMIA;
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Departamento asignada: " + departamento);
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+
+    }
+
+    public void reasignarDepartamento() {
+        System.out.println("Usted esta a punto de reasignar materia/despacho");
+        cargarDepartamento();
+        System.out.println("Nueva materia asignada correctamente ");
+    }
+
+    public void asignarSeccion() {
+        System.out.println("Opciones de sección: ");
+        for (int i = 0; i < Seccion.values().length; i++) {
+            System.out.println((i + 1) + ". " + Seccion.values()[i]);
+        }
+        System.out.print("Seleccione sección");
+        System.out.println("");
+        int opcionSeleccionada = input.nextInt();
+        Seccion seccion;
+        do {
+            switch (opcionSeleccionada) {
+                case 1:
+                    seccion = Seccion.ADMINISTRACION;
+                    break;
+                case 2:
+                    seccion = Seccion.BIBLIOTECA;
+                    break;
+                case 3:
+                    seccion = Seccion.DECANATO;
+                    break;
+                case 4:
+                    seccion = Seccion.FINANZAS;
+                    break;
+                case 5:
+                    seccion = Seccion.MANTENIMIENTO;
+                    break;
+                case 6:
+                    seccion = Seccion.RECURSOS_HUMANOS;
+                    break;
+                case 7:
+                    seccion = Seccion.REGISTRO_ACADEMICO;
+                    break;
+                case 8:
+                    seccion = Seccion.SECRETARIA;
+                    break;
+                case 9:
+                    seccion = Seccion.SEGURIDAD;
+                    break;
+                case 10:
+                    seccion = Seccion.SERVICIOS_ESTUDIANTILES;
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+                    return;
+            }
+            System.out.println("Sección asignada: " + seccion);
+        } while (opcionSeleccionada < 1 || opcionSeleccionada > 5);
+    }
+
+    public void reasignarSeccion() {
+        System.out.println("Reasignando sección...");
+        asignarSeccion();
+        System.out.println("Nueva sección asignada correctamente");
+    }
 
     public void menu() {
         int opcion;
-        Persona persona = null;
         do {
             System.out.println("Sistema de Gestión de Facultad");
             System.out.println("1. Cargar una persona");
@@ -150,24 +363,54 @@ public class PersonaServicio {
                     crearPersona();
                     break;
                 case 2:
-                    persona.cambioEstadoCivil();
+                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    int opcionID = input.nextInt();
+                    if (persona.getIdentificacion() == opcionID) {
+                        cambioEstadoCivil();
+                    } else {
+                        System.out.println("El ID ingresado no se registra en la base de datos...");
+                    }
                     break;
                 case 3:
-                    Empleado empleado = null;
+                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    int opcionID2 = input.nextInt();
+                    if (persona.getIdentificacion() == opcionID2) {
+                        Empleado empleado = null;
                     if (empleado instanceof Profesor) {
                         ((Profesor) empleado).cargarNumDespacho();
                     } else if (empleado instanceof PersonalServ) {
                         ((PersonalServ) empleado).cargarNumDespacho();
                     }
+                    } else {
+                        System.out.println("El ID ingresado no se registra en la base de datos...");
+                    }                  
                     break;
                 case 4:
-                    persona.reasignarMateria();
+                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    int opcionID3 = input.nextInt();
+                    if (persona.getIdentificacion() == opcionID3) {
+                        reasignarCurso();
+                    } else {
+                        System.out.println("El ID ingresado no se registra en la base de datos...");
+                    }                   
                     break;
                 case 5:
-                    persona.reasignarMateria();
+                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    int opcionID4 = input.nextInt();
+                    if (persona.getIdentificacion() == opcionID4) {
+                        reasignarDepartamento();
+                    } else {
+                        System.out.println("El ID ingresado no se registra en la base de datos...");
+                    }                 
                     break;
                 case 6:
-                    persona.reasignarSeccion();
+                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    int opcionID5 = input.nextInt();
+                    if (persona.getIdentificacion() == opcionID5) {
+                        reasignarSeccion();
+                    } else {
+                        System.out.println("El ID ingresado no se registra en la base de datos...");
+                    }                   
                     break;
                 case 7:
                     persona.toString();
@@ -183,14 +426,4 @@ public class PersonaServicio {
             System.out.println();
         } while (opcion != 8);
     }
-
-    public Persona buscarPersonaPorId(int id) {
-        for (Persona persona : personas) {
-            if (persona.getIdentificacion() == id) {
-                return persona;
-            }
-        }
-        return null; 
-    }
-
 }
