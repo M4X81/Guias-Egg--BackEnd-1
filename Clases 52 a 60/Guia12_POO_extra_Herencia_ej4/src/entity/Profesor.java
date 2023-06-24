@@ -42,13 +42,15 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     private Departamento departamento;
     private Integer fechaIncorp = (int) (Math.random()*40) + 1981;
     private static Integer numDespacho = (int) (Math.random()*100) +1;
+    private String codigoProfesor;
 
     public Profesor() {
     }
 
-    public Profesor(Departamento departamento, String nombre, String apellido, EstadoCivil estadoCivil) {
+    public Profesor(Departamento departamento, String codigoProfesor, String nombre, String apellido, EstadoCivil estadoCivil) {
         super(nombre, apellido, estadoCivil);
         this.departamento = departamento;
+        this.codigoProfesor = codigoProfesor;
     }
 
     public Departamento getDepartamento() {
@@ -59,14 +61,22 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
         this.departamento = departamento;
     }
 
-  
+    public String getCodigoProfesor() {
+        return codigoProfesor;
+    }
+
+    public void setCodigoProfesor(String codigoProfesor) {
+        this.codigoProfesor = codigoProfesor;
+    }
+
 
     @Override
     public String toString() {
         return super.toString() + "Función: Profesor " + "\n"
                 +"Departamento: " + departamento +"\n"
                 +"Fecha de Incorporación: " + fechaIncorp + "\n"
-                +"Número de despacho: " + numDespacho+"\n";
+                +"Número de despacho: " + numDespacho+"\n"
+                + "ID Profesor " + codigoProfesor + "\n";
     }
     
 

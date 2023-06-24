@@ -38,13 +38,15 @@ public class Estudiante extends Persona {
     /*• En cuanto a los estudiantes, se requiere almacenar el curso en el que están
 matriculados.*/
     private Departamento curso;
+    private String codigoEstudiante;
 
     public Estudiante() {
     }
 
-    public Estudiante(Departamento curso, String nombre, String apellido, EstadoCivil estadoCivil) {
+    public Estudiante(Departamento curso, String codigoEstudiante, String nombre, String apellido, EstadoCivil estadoCivil) {
         super(nombre, apellido, estadoCivil);
         this.curso = curso;
+        this.codigoEstudiante = codigoEstudiante;
     }
 
     public Departamento getCurso() {
@@ -54,12 +56,21 @@ matriculados.*/
     public void setCurso(Departamento curso) {
         this.curso = curso;
     }
-    
+
+    public String getCodigoEstudiante() {
+        return codigoEstudiante;
+    }
+
+    public void setCodigoEstudiante(String codigoEstudiante) {
+        this.codigoEstudiante = codigoEstudiante;
+    }
 
     @Override
     public String toString() {
         return super.toString()
                 + "Función : Estudiante" + "\n"
-                + "Curso: " + curso + "\n";
+                + "Curso: " + curso + "\n"
+                + "ID Estudiante=" + codigoEstudiante +"\n";
     }
+
 }

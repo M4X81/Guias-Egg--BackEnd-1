@@ -45,7 +45,7 @@ import java.util.Scanner;
  */
 public class PersonaServicio {
 
-
+   // public static int numID;
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     private List<Persona> personas = new ArrayList<>();
     Persona persona;
@@ -57,9 +57,9 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-       //((Estudiante) persona).setId(((Estudiante) persona). + 1);
-        Persona.setIdentificacion(Persona.getIdentificacion() + 1);
-        System.out.println("Su numero de identificación es: " + Persona.getIdentificacion() );
+        //((Estudiante) persona).setId(((Estudiante) persona). + 1);
+      //  Persona.setIdentificacion(Persona.getIdentificacion() + 1);
+      //  System.out.println("Su numero de identificación es: " + Persona.getIdentificacion());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
@@ -74,8 +74,8 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        ((Profesor) persona).setId(((Profesor) persona).getId() + 1);
-        System.out.println("Su numero de identificación es: " + ((Profesor) persona).getId());
+        // ((Profesor) persona).setId(((Profesor) persona).getId() + 1);
+        // System.out.println("Su numero de identificación es: " + ((Profesor) persona).getId());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
@@ -94,8 +94,8 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        ((PersonalServ) persona).setId(((PersonalServ) persona).getId() + 1);
-        System.out.println("Su numero de identificación es: " + ((PersonalServ) persona).getId());
+        //  ((PersonalServ) persona).setId(((PersonalServ) persona).getId() + 1);
+        // System.out.println("Su numero de identificación es: " + ((PersonalServ) persona).getId());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
@@ -345,6 +345,22 @@ public class PersonaServicio {
         System.out.println("Nueva sección asignada correctamente");
     }
 
+    public void mostrarLista() {
+        for (Persona persona1 : personas) {
+            System.out.println(persona1.toString());
+            if (personas instanceof Estudiante) {
+                System.out.print(((Estudiante) persona).toString());
+            }
+            if (personas instanceof Profesor) {
+                System.out.print(((Profesor) persona).toString());
+            }
+            if (personas instanceof PersonalServ) {
+                System.out.print(((PersonalServ) persona).toString());
+            }
+        }
+
+    }
+
     public void menu() {
         int opcion;
         do {
@@ -376,7 +392,7 @@ public class PersonaServicio {
                         }
                     }
                     if (personaEncontrada != null) {
-                       cambioEstadoCivil();
+                        cambioEstadoCivil();
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
                     }
@@ -432,7 +448,9 @@ public class PersonaServicio {
                     }
                     break;
                 case 7:
-                    System.out.print(personas.toString());
+
+                    mostrarLista();
+
                     break;
                 case 8:
                     System.out.println("Saliendo del sistema...");

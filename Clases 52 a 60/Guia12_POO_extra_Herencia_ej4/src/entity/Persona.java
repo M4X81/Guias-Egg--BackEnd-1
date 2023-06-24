@@ -34,15 +34,16 @@ import enums.EstadoCivil;
  */
 public class Persona {
 
-    //Clase Padre
+    // Clase Padre
     /*
     Por cada persona, se debe conocer, al menos, su nombre y apellidos, su número de
-identificación y su estado civil.
-     */
+    identificación y su estado civil.
+    */
     protected String nombre;
     protected String apellido;
-    public static int identificacion = 1000;
+    protected int numeroID;
     protected EstadoCivil estadoCivil;
+    private static int ultimaIdentificacion = 1000; // Número de identificación inicial
 
     public Persona() {
     }
@@ -51,6 +52,7 @@ identificación y su estado civil.
         this.nombre = nombre;
         this.apellido = apellido;
         this.estadoCivil = estadoCivil;
+        this.numeroID = generarNumeroID(); // Genera automáticamente un número de identificación
     }
 
     public String getNombre() {
@@ -69,12 +71,8 @@ identificación y su estado civil.
         this.apellido = apellido;
     }
 
-    public static int getIdentificacion() {
-        return identificacion;
-    }
-
-    public static void setIdentificacion(int identificacion) {
-        Persona.identificacion = identificacion;
+    public int getNumeroID() {
+        return numeroID;
     }
 
     public EstadoCivil getEstadoCivil() {
@@ -85,15 +83,16 @@ identificación y su estado civil.
         this.estadoCivil = estadoCivil;
     }
 
-   
-   
-
+    private int generarNumeroID() {
+        return ++ultimaIdentificacion;
+    }
 
     @Override
     public String toString() {
         return "Nombre: " + nombre + "\n"
                 + "Apellido: " + apellido + "\n"
-                + "Estado Civil: " + estadoCivil + " " + "\n";
+                + "Estado Civil: " + estadoCivil + "\n"
+                + "Número de ID: " + numeroID + "\n";
     }
-
 }
+
