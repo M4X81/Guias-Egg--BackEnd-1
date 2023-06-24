@@ -29,6 +29,7 @@ package entity;
 import enums.EstadoCivil;
 import enums.Seccion;
 import interfaces.Empleado;
+import service.PersonaServicio;
 
 /**
  *
@@ -45,17 +46,9 @@ public class PersonalServ extends Persona implements Empleado {
     public PersonalServ() {
     }
 
-    public PersonalServ(Seccion seccion, Integer fechaIncorp, Integer numDespacho) {
+    public PersonalServ(Seccion seccion, String nombre, String apellido, EstadoCivil estadoCivil) {
+        super(nombre, apellido, estadoCivil);
         this.seccion = seccion;
-        this.fechaIncorp = fechaIncorp;
-        this.numDespacho = numDespacho;
-    }
-
-    public PersonalServ(Seccion seccion, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
-        super(nombre, apellido, identificacion, estadoCivil);
-        this.seccion = seccion;
-        this.fechaIncorp = fechaIncorp;
-        this.numDespacho = numDespacho;
     }
 
     public Seccion getSeccion() {
@@ -66,15 +59,14 @@ public class PersonalServ extends Persona implements Empleado {
         this.seccion = seccion;
     }
 
+ 
+
     @Override
     public String toString() {
-        String parentString = super.toString();
-        return parentString + "\n"
-                + "Función: Personal de servicio " + "\n"
+        return super.toString() + "Función: Personal de servicio " + "\n"
                 + "Sección= " + seccion + "\n"
                 + "Fecha de Incorporación= " + fechaIncorp + "\n"
-                + "Número de despacho: " + numDespacho + "\n"
-                +"\n";
+                + "Número de despacho: " + numDespacho + "\n";
     }
 
     @Override

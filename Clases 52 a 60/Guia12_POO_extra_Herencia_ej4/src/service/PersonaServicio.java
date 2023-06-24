@@ -36,6 +36,7 @@ import enums.Individuos;
 import enums.Seccion;
 import interfaces.Empleado;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -44,8 +45,9 @@ import java.util.Scanner;
  */
 public class PersonaServicio {
 
+
     Scanner input = new Scanner(System.in).useDelimiter("\n");
-    ArrayList<Persona> personas = new ArrayList<>();
+    private List<Persona> personas = new ArrayList<>();
     Persona persona;
 
     public void crearEstudiante() {
@@ -55,13 +57,14 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        ((Estudiante)persona).setIdentificacion(persona.getIdentificacion() + 1);
-        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+       //((Estudiante) persona).setId(((Estudiante) persona). + 1);
+        Persona.setIdentificacion(Persona.getIdentificacion() + 1);
+        System.out.println("Su numero de identificación es: " + Persona.getIdentificacion() );
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
         cargarCurso();
-        personas.add(persona);
+        personas.add(((Estudiante) persona));
     }
 
     public void crearProfesor() {
@@ -71,17 +74,17 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        ((Profesor)persona).setIdentificacion(persona.getIdentificacion() + 1);
-        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+        ((Profesor) persona).setId(((Profesor) persona).getId() + 1);
+        System.out.println("Su numero de identificación es: " + ((Profesor) persona).getId());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
-        ((Profesor)persona).cargarAnioIncorporacion();
+        ((Profesor) persona).cargarAnioIncorporacion();
         System.out.println("A continuación seleccione departamento al que pertenece...");
         cargarDepartamento();
         System.out.println("");
-        ((Profesor)persona).cargarNumDespacho();
-        personas.add(persona);
+        ((Profesor) persona).cargarNumDespacho();
+        personas.add(((Profesor) persona));
     }
 
     public void crearPersonalServ() {
@@ -91,17 +94,17 @@ public class PersonaServicio {
         System.out.println("Ingrese apellido");
         persona.setApellido(input.next());
         System.out.println("Cargando numero de ID...");
-        ((PersonalServ)persona).setIdentificacion(persona.getIdentificacion() + 1);
-        System.out.println("Su numero de identificación es: " + persona.getIdentificacion());
+        ((PersonalServ) persona).setId(((PersonalServ) persona).getId() + 1);
+        System.out.println("Su numero de identificación es: " + ((PersonalServ) persona).getId());
         System.out.println(" ");
         cargarEstadoCivil();
         System.out.println(" ");
-        ((PersonalServ)persona).cargarAnioIncorporacion();
+        ((PersonalServ) persona).cargarAnioIncorporacion();
         System.out.println("A continuación indique sección a la que pertenece...");
         asignarSeccion();
         System.out.println("");
-        ((PersonalServ)persona).cargarNumDespacho();
-        personas.add(persona);
+        ((PersonalServ) persona).cargarNumDespacho();
+        personas.add(((PersonalServ) persona));
     }
 
     public void crearPersona() {
@@ -128,6 +131,7 @@ public class PersonaServicio {
 
         } while (opcion < 1 || opcion > 3);
     }
+
     public void cargarEstadoCivil() {
         System.out.println("Opciones de estado civil:");
 
@@ -153,7 +157,7 @@ public class PersonaServicio {
                     persona.setEstadoCivil(EstadoCivil.VIUDO_A);
                     break;
                 case 5:
-                    persona.setEstadoCivil(EstadoCivil.OTRO); 
+                    persona.setEstadoCivil(EstadoCivil.OTRO);
                     break;
                 default:
                     System.out.println("Opción inválida.");
@@ -165,7 +169,7 @@ public class PersonaServicio {
     }
 
     public void cambioEstadoCivil() {
-        
+
         System.out.println("Usted va a modificar su estado civil...");
         System.out.println("Estado civil actual: " + persona.getEstadoCivil());
         cargarEstadoCivil();
@@ -188,37 +192,37 @@ public class PersonaServicio {
                     ((Estudiante) persona).setCurso(Departamento.LENGUAJES);
                     break;
                 case 2:
-                     ((Estudiante) persona).setCurso(Departamento.MATEMATICAS);
+                    ((Estudiante) persona).setCurso(Departamento.MATEMATICAS);
                     break;
                 case 3:
-                     ((Estudiante) persona).setCurso(Departamento.ARQUITECTURA);
+                    ((Estudiante) persona).setCurso(Departamento.ARQUITECTURA);
                     break;
                 case 4:
-                     ((Estudiante) persona).setCurso(Departamento.HISTORIA);
+                    ((Estudiante) persona).setCurso(Departamento.HISTORIA);
                     break;
                 case 5:
-                     ((Estudiante) persona).setCurso(Departamento.BIOLOGIA);
+                    ((Estudiante) persona).setCurso(Departamento.BIOLOGIA);
                     break;
                 case 6:
-                     ((Estudiante) persona).setCurso(Departamento.QUIMICA);
+                    ((Estudiante) persona).setCurso(Departamento.QUIMICA);
                     break;
                 case 7:
-                     ((Estudiante) persona).setCurso(Departamento.FISICA);
+                    ((Estudiante) persona).setCurso(Departamento.FISICA);
                     break;
                 case 8:
-                     ((Estudiante) persona).setCurso(Departamento.LITERATURA);
+                    ((Estudiante) persona).setCurso(Departamento.LITERATURA);
                     break;
                 case 9:
-                     ((Estudiante) persona).setCurso(Departamento.INFORMATICA);
+                    ((Estudiante) persona).setCurso(Departamento.INFORMATICA);
                     break;
                 case 10:
-                     ((Estudiante) persona).setCurso(Departamento.ECONOMIA);
+                    ((Estudiante) persona).setCurso(Departamento.ECONOMIA);
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     return;
             }
-            System.out.println("Materia asignada: " +  ((Estudiante) persona).getCurso());
+            System.out.println("Materia asignada: " + ((Estudiante) persona).getCurso());
         } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
     }
 
@@ -238,44 +242,44 @@ public class PersonaServicio {
         System.out.print("Seleccione departamento");
         System.out.println("");
         int opcionSeleccionada = input.nextInt();
-        
+
         do {
             switch (opcionSeleccionada) {
                 case 1:
-                    ((Profesor)persona).setDepartamento(Departamento.LENGUAJES); 
+                    ((Profesor) persona).setDepartamento(Departamento.LENGUAJES);
                     break;
                 case 2:
-                    ((Profesor)persona).setDepartamento(Departamento.MATEMATICAS);
+                    ((Profesor) persona).setDepartamento(Departamento.MATEMATICAS);
                     break;
                 case 3:
-                    ((Profesor)persona).setDepartamento(Departamento.ARQUITECTURA); 
+                    ((Profesor) persona).setDepartamento(Departamento.ARQUITECTURA);
                     break;
                 case 4:
-                    ((Profesor)persona).setDepartamento(Departamento.HISTORIA);
+                    ((Profesor) persona).setDepartamento(Departamento.HISTORIA);
                     break;
                 case 5:
-                    ((Profesor)persona).setDepartamento(Departamento.BIOLOGIA);
+                    ((Profesor) persona).setDepartamento(Departamento.BIOLOGIA);
                     break;
                 case 6:
-                    ((Profesor)persona).setDepartamento(Departamento.QUIMICA);
+                    ((Profesor) persona).setDepartamento(Departamento.QUIMICA);
                     break;
                 case 7:
-                    ((Profesor)persona).setDepartamento(Departamento.FISICA);
+                    ((Profesor) persona).setDepartamento(Departamento.FISICA);
                     break;
                 case 8:
-                    ((Profesor)persona).setDepartamento(Departamento.LITERATURA);
+                    ((Profesor) persona).setDepartamento(Departamento.LITERATURA);
                     break;
                 case 9:
-                    ((Profesor)persona).setDepartamento(Departamento.INFORMATICA);
+                    ((Profesor) persona).setDepartamento(Departamento.INFORMATICA);
                     break;
                 case 10:
-                    ((Profesor)persona).setDepartamento(Departamento.ECONOMIA); 
+                    ((Profesor) persona).setDepartamento(Departamento.ECONOMIA);
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     return;
             }
-            System.out.println("Departamento asignada: " + ((Profesor)persona).getDepartamento());
+            System.out.println("Departamento asignada: " + ((Profesor) persona).getDepartamento());
         } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
 
     }
@@ -294,44 +298,44 @@ public class PersonaServicio {
         System.out.print("Seleccione sección");
         System.out.println("");
         int opcionSeleccionada = input.nextInt();
-     
+
         do {
             switch (opcionSeleccionada) {
                 case 1:
-                    ((PersonalServ)persona).setSeccion(Seccion.DECANATO); 
+                    ((PersonalServ) persona).setSeccion(Seccion.DECANATO);
                     break;
                 case 2:
-                    ((PersonalServ)persona).setSeccion(Seccion.BIBLIOTECA);
+                    ((PersonalServ) persona).setSeccion(Seccion.BIBLIOTECA);
                     break;
                 case 3:
-                    ((PersonalServ)persona).setSeccion(Seccion.DECANATO);
+                    ((PersonalServ) persona).setSeccion(Seccion.DECANATO);
                     break;
                 case 4:
-                    ((PersonalServ)persona).setSeccion(Seccion.FINANZAS);
+                    ((PersonalServ) persona).setSeccion(Seccion.FINANZAS);
                     break;
                 case 5:
-                    ((PersonalServ)persona).setSeccion(Seccion.MANTENIMIENTO);
+                    ((PersonalServ) persona).setSeccion(Seccion.MANTENIMIENTO);
                     break;
                 case 6:
-                    ((PersonalServ)persona).setSeccion(Seccion.RECURSOS_HUMANOS);
+                    ((PersonalServ) persona).setSeccion(Seccion.RECURSOS_HUMANOS);
                     break;
                 case 7:
-                    ((PersonalServ)persona).setSeccion(Seccion.REGISTRO_ACADEMICO);
+                    ((PersonalServ) persona).setSeccion(Seccion.REGISTRO_ACADEMICO);
                     break;
                 case 8:
-                    ((PersonalServ)persona).setSeccion(Seccion.SECRETARIA);
+                    ((PersonalServ) persona).setSeccion(Seccion.SECRETARIA);
                     break;
                 case 9:
-                    ((PersonalServ)persona).setSeccion(Seccion.SEGURIDAD);
+                    ((PersonalServ) persona).setSeccion(Seccion.SEGURIDAD);
                     break;
                 case 10:
-                    ((PersonalServ)persona).setSeccion(Seccion.SERVICIOS_ESTUDIANTILES);
+                    ((PersonalServ) persona).setSeccion(Seccion.SERVICIOS_ESTUDIANTILES);
                     break;
                 default:
                     System.out.println("Opción inválida.");
                     return;
             }
-            System.out.println("Sección asignada: " + ((PersonalServ)persona).getSeccion());
+            System.out.println("Sección asignada: " + ((PersonalServ) persona).getSeccion());
         } while (opcionSeleccionada < 1 || opcionSeleccionada > 10);
     }
 
@@ -364,55 +368,71 @@ public class PersonaServicio {
                 case 2:
                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
                     int opcionID = input.nextInt();
-                    if (persona.getIdentificacion() == opcionID) {
-                        cambioEstadoCivil();
+                    Persona personaEncontrada = null;
+                    for (Persona p : personas) {
+                        if (p.getId() == opcionID) {
+                            personaEncontrada = p;
+                            break;
+                        }
+                    }
+                    if (personaEncontrada != null) {
+                       cambioEstadoCivil();
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
                     }
                     break;
+
+//                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
+//                    int opcionID = input.nextInt();
+//                    if (persona.getId() == opcionID) {
+//                        cambioEstadoCivil();
+//                    } else {
+//                        System.out.println("El ID ingresado no se registra en la base de datos...");
+//                    }
+//                    break;
                 case 3:
                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
                     int opcionID2 = input.nextInt();
-                    if (persona.getIdentificacion() == opcionID2) {
+                    if (persona.getId() == opcionID2) {
                         Empleado empleado = null;
-                    if (empleado instanceof Profesor) {
-                        ((Profesor) empleado).cargarNumDespacho();
-                    } else if (empleado instanceof PersonalServ) {
-                        ((PersonalServ) empleado).cargarNumDespacho();
-                    }
+                        if (empleado instanceof Profesor) {
+                            ((Profesor) empleado).cargarNumDespacho();
+                        } else if (empleado instanceof PersonalServ) {
+                            ((PersonalServ) empleado).cargarNumDespacho();
+                        }
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
-                    }                  
+                    }
                     break;
                 case 4:
-                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
                     int opcionID3 = input.nextInt();
-                    if (persona.getIdentificacion() == opcionID3) {
+                    if (persona.getId() == opcionID3) {
                         reasignarCurso();
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
-                    }                   
+                    }
                     break;
                 case 5:
-                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
                     int opcionID4 = input.nextInt();
-                    if (persona.getIdentificacion() == opcionID4) {
+                    if (persona.getId() == opcionID4) {
                         reasignarDepartamento();
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
-                    }                 
+                    }
                     break;
                 case 6:
-                     System.out.println("Ingrese número de ID de la persona para modificar los datos");
+                    System.out.println("Ingrese número de ID de la persona para modificar los datos");
                     int opcionID5 = input.nextInt();
-                    if (persona.getIdentificacion() == opcionID5) {
+                    if (persona.getId() == opcionID5) {
                         reasignarSeccion();
                     } else {
                         System.out.println("El ID ingresado no se registra en la base de datos...");
-                    }                   
+                    }
                     break;
                 case 7:
-                    System.out.println(personas.toString());
+                    System.out.print(personas.toString());
                     break;
                 case 8:
                     System.out.println("Saliendo del sistema...");

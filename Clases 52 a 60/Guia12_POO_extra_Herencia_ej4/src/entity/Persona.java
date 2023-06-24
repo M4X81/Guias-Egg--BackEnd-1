@@ -27,7 +27,6 @@ que instancie objetos de los distintos tipos y pruebe los métodos desarrollados
 package entity;
 
 import enums.EstadoCivil;
-import java.util.Scanner;
 
 /**
  *
@@ -42,18 +41,15 @@ identificación y su estado civil.
      */
     protected String nombre;
     protected String apellido;
-    protected static Integer identificacion = 1000;
+    public static int identificacion = 1000;
     protected EstadoCivil estadoCivil;
-    Scanner input = new Scanner(System.in).useDelimiter("\n");
-    Persona persona;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
+    public Persona(String nombre, String apellido, EstadoCivil estadoCivil) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.identificacion = identificacion;
         this.estadoCivil = estadoCivil;
     }
 
@@ -73,12 +69,12 @@ identificación y su estado civil.
         this.apellido = apellido;
     }
 
-    public Integer getIdentificacion() {
+    public static int getIdentificacion() {
         return identificacion;
     }
 
-    public void setIdentificacion(Integer identificacion) {
-        this.identificacion = identificacion;
+    public static void setIdentificacion(int identificacion) {
+        Persona.identificacion = identificacion;
     }
 
     public EstadoCivil getEstadoCivil() {
@@ -89,12 +85,15 @@ identificación y su estado civil.
         this.estadoCivil = estadoCivil;
     }
 
+   
+   
+
+
     @Override
     public String toString() {
         return "Nombre: " + nombre + "\n"
                 + "Apellido: " + apellido + "\n"
-                + "Estado Civil: " + estadoCivil + "\n"
-                + "Número ID: " + identificacion +"\n";
+                + "Estado Civil: " + estadoCivil + " " + "\n";
     }
 
 }

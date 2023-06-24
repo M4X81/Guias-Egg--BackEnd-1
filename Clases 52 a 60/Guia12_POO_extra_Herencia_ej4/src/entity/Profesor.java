@@ -29,6 +29,7 @@ package entity;
 import enums.Departamento;
 import enums.EstadoCivil;
 import interfaces.Empleado;
+import service.PersonaServicio;
 
 /**
  *
@@ -45,11 +46,9 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     public Profesor() {
     }
 
-    public Profesor(Departamento departamento, Integer fechaIncorp, Integer numDespacho, String nombre, String apellido, Integer identificacion, EstadoCivil estadoCivil) {
-        super(nombre, apellido, identificacion, estadoCivil);
+    public Profesor(Departamento departamento, String nombre, String apellido, EstadoCivil estadoCivil) {
+        super(nombre, apellido, estadoCivil);
         this.departamento = departamento;
-        this.fechaIncorp = fechaIncorp;
-        this.numDespacho = numDespacho;
     }
 
     public Departamento getDepartamento() {
@@ -60,15 +59,14 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
         this.departamento = departamento;
     }
 
+  
+
     @Override
     public String toString() {
-        String parentString = super.toString();
-        return parentString 
-                + "Función: Profesor " + "\n"
+        return super.toString() + "Función: Profesor " + "\n"
                 +"Departamento: " + departamento +"\n"
                 +"Fecha de Incorporación: " + fechaIncorp + "\n"
-                +"Número de despacho: " + numDespacho+"\n"
-                +"\n";
+                +"Número de despacho: " + numDespacho+"\n";
     }
     
 
