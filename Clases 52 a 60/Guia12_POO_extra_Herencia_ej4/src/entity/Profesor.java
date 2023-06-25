@@ -40,14 +40,14 @@ public class Profesor extends Persona implements Empleado {
     /*• Por lo que se refiere a los profesores, es necesario gestionar a qué departamento
 pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
     private Departamento departamento;
-    private Integer fechaIncorp = (int) (Math.random()*40) + 1981;
-    private static Integer numDespacho = (int) (Math.random()*100) +1;
-    private String codigoProfesor;
+    private Integer fechaIncorp = (int) (Math.random() * 40) + 1981;
+    private int numDespacho = (int) (Math.random() * 100) + 1;
+    private int codigoProfesor;
 
     public Profesor() {
     }
 
-    public Profesor(Departamento departamento, String codigoProfesor, String nombre, String apellido, EstadoCivil estadoCivil) {
+    public Profesor(Departamento departamento, int codigoProfesor, String nombre, String apellido, EstadoCivil estadoCivil) {
         super(nombre, apellido, estadoCivil);
         this.departamento = departamento;
         this.codigoProfesor = codigoProfesor;
@@ -61,24 +61,26 @@ pertenecen (lenguajes, matemáticas, arquitectura, ...).*/
         this.departamento = departamento;
     }
 
-    public String getCodigoProfesor() {
+    public int getCodigoProfesor() {
         return codigoProfesor;
     }
 
-    public void setCodigoProfesor(String codigoProfesor) {
+    public void setCodigoProfesor(int codigoProfesor) {
         this.codigoProfesor = codigoProfesor;
     }
 
+    public void cambiarNumDespacho(Persona persona) {
+        this.numDespacho = (int) (Math.random() * 100) + 101;
+    }
 
     @Override
     public String toString() {
         return super.toString() + "Función: Profesor " + "\n"
-                +"Departamento: " + departamento +"\n"
-                +"Fecha de Incorporación: " + fechaIncorp + "\n"
-                +"Número de despacho: " + numDespacho+"\n"
+                + "Departamento: " + departamento + "\n"
+                + "Fecha de Incorporación: " + fechaIncorp + "\n"
+                + "Número de despacho: " + numDespacho + "\n"
                 + "ID Profesor " + codigoProfesor + "\n";
     }
-    
 
     @Override
     public void cargarAnioIncorporacion() {

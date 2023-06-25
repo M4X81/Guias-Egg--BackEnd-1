@@ -41,18 +41,9 @@ public class Persona {
     */
     protected String nombre;
     protected String apellido;
-    protected int numeroID;
     protected EstadoCivil estadoCivil;
-    private static int ultimaIdentificacion = 1000; // Número de identificación inicial
 
     public Persona() {
-    }
-
-    public Persona(String nombre, String apellido, EstadoCivil estadoCivil) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.estadoCivil = estadoCivil;
-        this.numeroID = generarNumeroID(); // Genera automáticamente un número de identificación
     }
 
     public String getNombre() {
@@ -71,10 +62,6 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public int getNumeroID() {
-        return numeroID;
-    }
-
     public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
@@ -83,16 +70,18 @@ public class Persona {
         this.estadoCivil = estadoCivil;
     }
 
-    private int generarNumeroID() {
-        return ++ultimaIdentificacion;
+    public Persona(String nombre, String apellido, EstadoCivil estadoCivil) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.estadoCivil = estadoCivil;
     }
+
 
     @Override
     public String toString() {
         return "Nombre: " + nombre + "\n"
                 + "Apellido: " + apellido + "\n"
-                + "Estado Civil: " + estadoCivil + "\n"
-                + "Número de ID: " + numeroID + "\n";
+                + "Estado Civil: " + estadoCivil + "\n";
     }
 }
 

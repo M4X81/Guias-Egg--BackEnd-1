@@ -29,7 +29,6 @@ package entity;
 import enums.EstadoCivil;
 import enums.Seccion;
 import interfaces.Empleado;
-import service.PersonaServicio;
 
 /**
  *
@@ -41,14 +40,16 @@ public class PersonalServ extends Persona implements Empleado {
 (biblioteca, decanato, secretaría, ...).*/
     private Seccion seccion;
     private Integer fechaIncorp = (int) (Math.random() * 40) + 1981;
-    private static Integer numDespacho = (int) (Math.random() * 200) + 101;
+    private int numDespacho = (int) (Math.random() * 200) + 101;
+    private int codigoPersServ;
 
     public PersonalServ() {
     }
 
-    public PersonalServ(Seccion seccion, String nombre, String apellido, EstadoCivil estadoCivil) {
+    public PersonalServ(Seccion seccion, int codigoPersServ, String nombre, String apellido, EstadoCivil estadoCivil) {
         super(nombre, apellido, estadoCivil);
         this.seccion = seccion;
+        this.codigoPersServ = codigoPersServ;
     }
 
     public Seccion getSeccion() {
@@ -59,14 +60,25 @@ public class PersonalServ extends Persona implements Empleado {
         this.seccion = seccion;
     }
 
- 
+    public int getCodigoPersServ() {
+        return codigoPersServ;
+    }
+
+    public void setCodigoPersServ(int codigoPersServ) {
+        this.codigoPersServ = codigoPersServ;
+    }
+
+    public void cambiarNumDespacho(Persona persona) {
+        this.numDespacho = (int) (Math.random() * 200) + 101;
+    }
 
     @Override
     public String toString() {
         return super.toString() + "Función: Personal de servicio " + "\n"
                 + "Sección= " + seccion + "\n"
                 + "Fecha de Incorporación= " + fechaIncorp + "\n"
-                + "Número de despacho: " + numDespacho + "\n";
+                + "Número de despacho: " + numDespacho + "\n"
+                + "ID Personal de servicio: " + codigoPersServ + "\n";
     }
 
     @Override
